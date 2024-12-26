@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>RMA_Requests</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>RMA_Requests</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>RMA_Requests</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>RMA_Requests</fullName>
+        <fields>Name</fields>
+        <fields>Manufacturer__c</fields>
+        <fields>Work_Order__c</fields>
+        <fields>Status__c</fields>
+        <fields>Case_Number__c</fields>
+        <fields>Account__c</fields>
+        <fields>Inbound_Tracking_Number__c</fields>
+        <label>RMA Requests</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>RMA Requests</relationshipLabel>
+        <relationshipName>RMA_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>RMA Case Number</label>
+        <length>40</length>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>RMA Requests</relationshipLabel>
+        <relationshipName>RMA_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Created_Date__c</fullName>
+        <label>Created Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <label>Description</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DestinationLocation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Destination Location</label>
+        <referenceTo>Location</referenceTo>
+        <relationshipLabel>RMA Requests</relationshipLabel>
+        <relationshipName>RMA_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ETA_Date__c</fullName>
+        <label>ETA Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Inbound_Tracking_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Inbound Tracking Number</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Labor_Compensation_Status__c</fullName>
+        <label>Labor Compensation Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Needed</fullName>
+                    <default>false</default>
+                    <label>Needed</label>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Approved_RTI</fullName>
+                    <default>false</default>
+                    <label>Approved/RTI</label>
+                </value>
+                <value>
+                    <fullName>Invoice Sent</fullName>
+                    <default>false</default>
+                    <label>Invoice Sent</label>
+                </value>
+                <value>
+                    <fullName>Payment Received</fullName>
+                    <default>false</default>
+                    <label>Payment Received</label>
+                </value>
+                <value>
+                    <fullName>Denied - Ineligible</fullName>
+                    <default>false</default>
+                    <label>Denied - Ineligible</label>
+                </value>
+                <value>
+                    <fullName>Denied - Not Supported</fullName>
+                    <default>false</default>
+                    <label>Denied - Not Supported</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Labor_Reimbursement_Approval_Date__c</fullName>
+        <label>Labor Reimbursement Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Labor_Reimbursement_Invoice_Created_Date__c</fullName>
+        <label>Labor Reimbursement Invoice Created Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Labor_Reimbursement_Submitted_Date__c</fullName>
+        <label>Labor Reimbursement Submitted Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Labor_Reimbursement_Total__c</fullName>
+        <label>Labor Reimbursement Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Manufacturer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Manufacturer</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Type</field>
+                <operation>equals</operation>
+                <value>Vendor</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Vendor_Type__c</field>
+                <operation>equals</operation>
+                <value>Manufacturer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>RMA Requests (Manufacturer)</relationshipLabel>
+        <relationshipName>RMA_Requests1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Outbound_Tracking_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Outbound Tracking Number</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Price_Book__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Price Book</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipLabel>RMA Requests</relationshipLabel>
+        <relationshipName>RMA_Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Approved_Date__c</fullName>
+        <label>RMA Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Created_Date__c</fullName>
+        <label>RMA Created Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Denial_Reason__c</fullName>
+        <description>If an RMA was Denied Please provide a Reason</description>
+        <label>RMA Denial Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Manufacture Denial</fullName>
+                    <default>false</default>
+                    <label>Manufacture Denial</label>
+                </value>
+                <value>
+                    <fullName>Needs Additional Information</fullName>
+                    <default>false</default>
+                    <label>Needs Additional Information</label>
+                </value>
+                <value>
+                    <fullName>Out of Warranty</fullName>
+                    <default>false</default>
+                    <label>Out of Warranty</label>
+                </value>
+                <value>
+                    <fullName>Warranty Voided</fullName>
+                    <default>false</default>
+                    <label>Warranty Voided</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RMA_Received_Date__c</fullName>
+        <label>RMA Received Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Request_Type__c</fullName>
+        <label>RMA Request Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bulk Shipment</fullName>
+                    <default>false</default>
+                    <label>Bulk Shipment</label>
+                </value>
+                <value>
+                    <fullName>WO-Specific</fullName>
+                    <default>false</default>
+                    <label>WO-Specific</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RMA_Return_Checked_In_Date__c</fullName>
+        <description>The date the office has verified the RMA Return has been received from the technician.</description>
+        <inlineHelpText>The date the office has verified the RMA Return has been received from the technician.</inlineHelpText>
+        <label>RMA Return Checked In Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Return_Date__c</fullName>
+        <inlineHelpText>Date materials were repackaged and shipped back to manufacturer</inlineHelpText>
+        <label>RMA Return Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Return_Method__c</fullName>
+        <label>RMA Return Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Return (Shipping Label)</fullName>
+                    <default>false</default>
+                    <label>Return (Shipping Label)</label>
+                </value>
+                <value>
+                    <fullName>Pallet - Sunpower</fullName>
+                    <default>false</default>
+                    <label>Pallet - Sunpower</label>
+                </value>
+                <value>
+                    <fullName>Pallet - ABB</fullName>
+                    <default>false</default>
+                    <label>Pallet - ABB</label>
+                </value>
+                <value>
+                    <fullName>Recycle / E-Waste</fullName>
+                    <default>false</default>
+                    <label>Recycle / E-Waste</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RMA_Return_Needed__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>RMA Return Needed?</description>
+        <inlineHelpText>Do we need to Return the Defective Unit / Return Slip Included with New Unit?</inlineHelpText>
+        <label>RMA Return Needed?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Shipped_Date__c</fullName>
+        <label>RMA Shipped Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Service_Resource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Service Resource</label>
+        <referenceTo>ServiceResource</referenceTo>
+        <relationshipLabel>RMA Request</relationshipLabel>
+        <relationshipName>RMA_Request</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending RMA Approval</fullName>
+                    <default>true</default>
+                    <label>Pending RMA Approval</label>
+                </value>
+                <value>
+                    <fullName>RMA Approved - Pending Shipment</fullName>
+                    <default>false</default>
+                    <label>RMA Approved - Pending Shipment</label>
+                </value>
+                <value>
+                    <fullName>RMA Sent - Pending Arrival</fullName>
+                    <default>false</default>
+                    <label>RMA Sent - Pending Arrival</label>
+                </value>
+                <value>
+                    <fullName>RMA Partially Received</fullName>
+                    <default>false</default>
+                    <label>RMA Partially Received</label>
+                </value>
+                <value>
+                    <fullName>RMA Delivered - Pending Check In</fullName>
+                    <default>false</default>
+                    <label>RMA Delivered - Pending Check In</label>
+                </value>
+                <value>
+                    <fullName>RMA Received - Ready to Schedule</fullName>
+                    <default>false</default>
+                    <label>RMA Received - Ready to Schedule</label>
+                </value>
+                <value>
+                    <fullName>RMA Denied</fullName>
+                    <default>false</default>
+                    <label>RMA Denied</label>
+                </value>
+                <value>
+                    <fullName>RMA Pending Return</fullName>
+                    <default>false</default>
+                    <label>RMA Pending Return</label>
+                </value>
+                <value>
+                    <fullName>RMA Return Checked In</fullName>
+                    <default>false</default>
+                    <label>RMA Return Checked In</label>
+                </value>
+                <value>
+                    <fullName>RMA Return Sent</fullName>
+                    <default>false</default>
+                    <label>RMA Return Sent</label>
+                </value>
+                <value>
+                    <fullName>Fulfilled</fullName>
+                    <default>false</default>
+                    <label>Fulfilled</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Work_Order__c</fullName>
+        <label>Work Order</label>
+        <referenceTo>WorkOrder</referenceTo>
+        <relationshipLabel>RMA Requests</relationshipLabel>
+        <relationshipName>RMARequests</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>RMA Request</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Status__c</columns>
+        <columns>Work_Order__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Inbound_Tracking_Number__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Labor_Reimbursement</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Labor_Reimbursement_Total__c</columns>
+        <columns>Labor_Reimbursement_Approval_Date__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>equals</operation>
+            <value>Needed</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Pending RMA Approval,RMA Approved - Pending Shipment,RMA Denied</value>
+        </filters>
+        <filters>
+            <field>Manufacturer__c</field>
+            <operation>notContain</operation>
+            <value>SunPower</value>
+        </filters>
+        <label>Labor Reimbursement - Needed</label>
+    </listViews>
+    <listViews>
+        <fullName>Labor_Reimbursement_Denied</fullName>
+        <columns>NAME</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Labor_Reimbursement_Approval_Date__c</columns>
+        <columns>Labor_Reimbursement_Invoice_Created_Date__c</columns>
+        <columns>Labor_Reimbursement_Total__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>equals</operation>
+            <value>Denied - Ineligible,Denied - Not Supported</value>
+        </filters>
+        <label>Labor Reimbursement - Denied</label>
+    </listViews>
+    <listViews>
+        <fullName>Labor_Reimbursement_No_Status</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Labor_Reimbursement_Total__c</columns>
+        <columns>Labor_Reimbursement_Submitted_Date__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>RMA Delivered - Pending Check In,RMA Received - Ready to Schedule,RMA Pending Return,RMA Return Checked In,RMA Return Sent</value>
+        </filters>
+        <filters>
+            <field>Created_Date__c</field>
+            <operation>equals</operation>
+            <value>THIS_YEAR</value>
+        </filters>
+        <filters>
+            <field>Manufacturer__c</field>
+            <operation>notContain</operation>
+            <value>SunPower</value>
+        </filters>
+        <label>Labor Reimbursement - No Status</label>
+    </listViews>
+    <listViews>
+        <fullName>Labor_Reimbursement_Pending</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Labor_Reimbursement_Total__c</columns>
+        <columns>Labor_Reimbursement_Approval_Date__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </filters>
+        <label>Labor Reimbursement - Pending</label>
+    </listViews>
+    <listViews>
+        <fullName>Labor_Reimbursement_SE_Approved</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Labor_Reimbursement_Total__c</columns>
+        <columns>Labor_Reimbursement_Approval_Date__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved_RTI</value>
+        </filters>
+        <label>Labor Reimbursement - Approved</label>
+    </listViews>
+    <listViews>
+        <fullName>Labor_Reimbursement_Submitted</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Labor_Reimbursement_Total__c</columns>
+        <columns>Labor_Reimbursement_Submitted_Date__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>equals</operation>
+            <value>Submitted</value>
+        </filters>
+        <label>Labor Reimbursement - Submitted</label>
+    </listViews>
+    <listViews>
+        <fullName>Open_RMA</fullName>
+        <columns>NAME</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Status__c</columns>
+        <columns>Work_Order__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Inbound_Tracking_Number__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Pending RMA Approval,RMA Approved - Pending Shipment,RMA Sent - Pending Arrival</value>
+        </filters>
+        <label>Open RMA</label>
+    </listViews>
+    <listViews>
+        <fullName>RMA_Reimbursement_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>Work_Order__c</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Labor_Compensation_Status__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Labor_Compensation_Status__c</field>
+            <operation>contains</operation>
+            <value>Needed,Submitted,Approved,Declined,Payment Received</value>
+        </filters>
+        <filters>
+            <field>Manufacturer__c</field>
+            <operation>notContain</operation>
+            <value>Sun,Also</value>
+        </filters>
+        <label>RMA Reimbursement Queue</label>
+    </listViews>
+    <listViews>
+        <fullName>SolarEdge</fullName>
+        <columns>NAME</columns>
+        <columns>Manufacturer__c</columns>
+        <columns>Status__c</columns>
+        <columns>Work_Order__c</columns>
+        <columns>Case_Number__c</columns>
+        <columns>Inbound_Tracking_Number__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Manufacturer__c</field>
+            <operation>contains</operation>
+            <value>SolarEdge</value>
+        </filters>
+        <label>SolarEdge</label>
+    </listViews>
+    <nameField>
+        <displayFormat>RMA-{0000}</displayFormat>
+        <label>RMA Request Number</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>RMA Request</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Manufacturer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Work_Order__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
