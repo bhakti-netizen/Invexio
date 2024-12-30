@@ -1,0 +1,160 @@
+<!-- barcodeScannerExample.html -->
+<template>
+    <div class="slds-text-align_center">
+        <span class="slds-text-heading_large">Scan Products for Pulling Material back to warehouse</span>
+    </div>
+
+    <!-- Static help text -->
+    <div class="slds-text-align_center slds-text-color_weak slds-m-vertical_large">
+        Click <strong>Scan QR Code</strong> to open a QR scanner camera view. Position a
+        QR in the scanner view to scan it.
+    </div>
+
+    <div class="slds-align_absolute-center slds-m-vertical_large">
+            <lightning-button
+                variant="brand"
+                class="slds-var-m-left_x-small"
+                disabled={scanButtonTechnicianDisabled}
+                icon-name="utility:scan"
+                label="Scan Technician's QR Code"
+                title="Open a camera view and look for a barcode to scan"
+                onclick={handleTechnicianScanner}>
+            </lightning-button>
+            <template if:true={showPopupForTechnician}>
+                <div class="slds-modal slds-fade-in-open" >
+                    <div class="slds-modal__container">
+                        <lightning-modal-header label="Enter technician Id"></lightning-modal-header>
+                        <div class="slds-modal__content slds-p-around_medium">
+                            <!-- <lightning-input type="text" label="Technician Id" value={popupTechnicianId} onchange={popupTechnicianOnchange}></lightning-input> -->
+                            <lightning-record-picker
+                                            label="Technician"
+                                            placeholder="Search Technician"
+                                            object-api-name="ServiceResource"
+                                            value={popupTechnicianId}
+                                            onchange={popupTechnicianOnchange}
+                                            
+                                            name="techicianNamepopup"
+                            >
+                            </lightning-record-picker>
+                        </div>
+                        <div class="slds-modal__footer">
+                            <lightning-button label="Save" onclick={handlepopupTechnician} variant="brand"></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+    </div>
+
+    <div class="slds-align_absolute-center slds-m-vertical_large">
+            <lightning-button
+                variant="brand"
+                class="slds-var-m-left_x-small"
+                disabled={scanButtonDisabled}
+                icon-name="utility:scan"
+                label="Scan Location QR Code"
+                title="Open a camera view and look for a barcode to scan"
+                onclick={handleLocationScanner}>
+            </lightning-button>
+    </div>
+    <!-- The click-to-scan button;
+         Disabled if BarcodeScanner isn't available -->
+    <div class="slds-align_absolute-center slds-m-vertical_large">
+
+        
+        <div>
+
+            <lightning-button 
+                variant="brand"
+                class="slds-var-m-left_x-small"
+                disabled={locationScanned}
+                icon-name="utility:scan"
+                label="Scan QR Code"
+                title="Open a camera view and look for a barcode to scan"
+                onclick={handleBeginScanClick}>
+            </lightning-button>
+                
+            <!-- "Finish" button to indicate when scanning is complete -->
+            <lightning-button
+                variant="brand"
+                class="slds-var-m-left_x-small"
+                label="Finish"
+                title="Finish scanning and process scanned barcodes"
+                disabled={disableFinish}
+                onclick={handleFinishClick}>
+            </lightning-button>
+        </div>
+    </div>
+
+    <!-- After a barcode is successfully scanned, 
+         its value is displayed here: -->
+    <template if:true={scannedBarcodeList}>
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+             slds-text-align_center slds-border_top slds-border_bottom">
+            <p>Scanned Barcodes:</p>
+            <template for:each={scannedCodesWithQuantity} for:item="barcode">
+                <div key={barcode}>{barcode}</div>
+            </template>
+        </div>
+    </template>
+
+    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+        <span class="slds-assistive-text">Error</span>
+        <h2>{errorTitle}</h2>
+        <p>{errorMessage}</p>
+    </div>
+   <!-- Modal to display the form -->
+    <template if:true={showPopup}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <lightning-modal-header label="Update Count of Product"></lightning-modal-header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-input type="text" label="Product Name" value={productName} readonly=true></lightning-input>
+                    <lightning-input type="text" label="Product SKU" value={productSKU} readonly=true></lightning-input>
+                    <lightning-input type="text" label="Quantity Unit of Measure" value={quantityUnitOfMeasure} readonly=true></lightning-input>
+                    <lightning-input type="number" label="Enter Quantity to Get Back" value={quantity} onchange={handleQuantityChange}></lightning-input>
+                    <lightning-input type="hidden" value={scanVal} class="slds-hide"></lightning-input>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning-button label="Save" onclick={handleSave} variant="brand"></lightning-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <template if:true={showWarning}>
+            <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <lightning-modal-header label="Update Count of Product"></lightning-modal-header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-input type="text" label="Warning Message" value="This type of material already seems to be returned!! Are you sure you want to proceed" readonly=true></lightning-input>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning-button label="Proceed" onclick={proceed} variant="brand"></lightning-button>
+                    <lightning-button label="Do Not Proceed" onclick={doNotProceed} variant="brand"></lightning-button>
+                </div>
+            </div>
+        </div>
+        </template> -->
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Modal to display the warning -->
+    <template if:true={showWarning}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <lightning-modal-header label="Are You Sure About Proceeding"></lightning-modal-header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- <lightning-input type="text-area" label="Warning Message" value="This type of material already seems to be returned!! Are you sure you want to proceed" readonly=true></lightning-input> -->
+                    <lightning-textarea name="input4" readonly value="This type of material already seems to be returned!! Are you sure you want to proceed?" label="Warning Message" ></lightning-textarea>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning-button label="Proceed" onclick={proceed} variant="brand" class="slds-p-horizontal_x-small"></lightning-button>
+                    <lightning-button label="Do Not Proceed" onclick={doNotProceed} variant="brand" class="slds-p-horizontal_x-small"></lightning-button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+   
+</template>
