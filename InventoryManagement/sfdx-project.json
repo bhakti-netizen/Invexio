@@ -1,12 +1,12 @@
 {
   "packageDirectories": [
     {
-      "path": "force-app",
+      "path": "force-app/src",
       "default": true
     }
   ],
   "name": "InventoryManagement",
-  "namespace": "",
+  "namespace": "InventroTest",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "62.0"
 }
