@@ -9,8 +9,8 @@
       "package": "InventoryManagement",
       "versionName": "ver 0.1",
       "versionNumber": "0.1.0.NEXT",
-      "default": false,
-      "versionDescription": ""
+      "default": true,
+      "versionDescription": "Extension package to Field Service Lightning"
     }
   ],
   "name": "InventoryManagement",
