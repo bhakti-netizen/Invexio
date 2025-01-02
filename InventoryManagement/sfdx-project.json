@@ -3,10 +3,21 @@
     {
       "path": "force-app/src",
       "default": true
+    },
+    {
+      "path": "force-app",
+      "package": "InventoryManagement",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
     }
   ],
   "name": "InventoryManagement",
   "namespace": "InventroTest",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "62.0"
+  "sourceApiVersion": "62.0",
+  "packageAliases": {
+    "InventoryManagement": "0HodM0000000dhJSAQ"
+  }
 }
