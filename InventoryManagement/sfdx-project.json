@@ -1,10 +1,6 @@
 {
   "packageDirectories": [
     {
-      "path": "force-app/src",
-      "default": true
-    },
-    {
       "path": "force-app",
       "package": "InventoryManagement",
       "versionName": "ver 0.1",

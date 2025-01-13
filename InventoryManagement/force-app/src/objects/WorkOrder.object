@@ -52,8 +52,19 @@
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Scheduling_Status</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Scheduled</fullName>
+                    <default>false</default>
+                    <label>Scheduled</label>
+                </value>
+                <value>
+                    <fullName>Reschedule</fullName>
+                    <default>false</default>
+                    <label>Reschedule</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
 </CustomObject>

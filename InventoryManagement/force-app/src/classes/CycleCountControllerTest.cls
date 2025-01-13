@@ -73,10 +73,11 @@ public class CycleCountControllerTest {
             pi[1].ProductItemNumber + '#$#10#$#7'
         };
         
-        String result = CycleCountController.combinedCycleCount(barcodes);
+        Schema.Location loc = [Select Id, Name From Location Where Name = 'Test Location 1' LIMIT 1];
+        String result = CycleCountController.combinedCycleCount(barcodes, (String)loc.Id);
         System.assert(result.contains('Cycle Count records have been updated/created successfully'), 'Expected success message in result');
 
-        Decimal actualQuantity = CycleCountController.fetchActualQuantityForScannedProduct([Select Id, ProductItemNumber From ProductItem Where IsProduct2Serialized = true LIMIT 1].ProductItemNumber);
+        Decimal actualQuantity = CycleCountController.fetchActualQuantityForScannedProduct([Select Id, ProductItemNumber From ProductItem Where IsProduct2Serialized = true LIMIT 1].ProductItemNumber, (String)loc.Id);
         System.assertEquals(30, actualQuantity, 'Expected actual quantity for Product Item');
 		
         Test.stopTest();
@@ -84,14 +85,15 @@ public class CycleCountControllerTest {
 
     @isTest
     static void testFetchTotalQuantityForScannedProduct() {
+        Schema.Location loc = [Select Id From Location Where Name = 'Test Location 1' LIMIT 1];
         Test.startTest();
 
         Decimal totalQuantity = CycleCountController.fetchTotalQuantityForScannedProduct('SP001');
         Decimal totalQuantity1 = CycleCountController.fetchTotalQuantityForScannedProduct([Select Id, ProductItemNumber From ProductItem Where IsProduct2Serialized = true LIMIT 1].ProductItemNumber);
         System.assertEquals(100, totalQuantity, 'Expected total quantity for Serialized Product');
         
-        String productName = CycleCountController.fetchProductNameForScannedProduct('SP001');
-        String productName1 = CycleCountController.fetchProductNameForScannedProduct([Select Id, ProductItemNumber From ProductItem Where IsProduct2Serialized = true LIMIT 1].ProductItemNumber);
+        CycleCountController.ProductWrapper productName = CycleCountController.fetchProductNameForScannedProduct('SP001', (String)loc.Id);
+        CycleCountController.ProductWrapper productName1 = CycleCountController.fetchProductNameForScannedProduct([Select Id, ProductItemNumber From ProductItem Where IsProduct2Serialized = true LIMIT 1].ProductItemNumber, (String)loc.Id);
         
 
         Test.stopTest();
