@@ -7,6 +7,14 @@
       "versionNumber": "0.1.0.NEXT",
       "default": true,
       "versionDescription": "Extension package to Field Service Lightning"
+    },
+    {
+      "path": "force-app",
+      "package": "InventroTest",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
     }
   ],
   "name": "InventoryManagement",
@@ -14,6 +22,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "62.0",
   "packageAliases": {
-    "InventoryManagement": "0HodM0000000dhJSAQ"
+    "InventoryManagement": "0HodM0000000dhJSAQ",
+    "InventroTest": "0HodM0000000en3SAA"
   }
 }
