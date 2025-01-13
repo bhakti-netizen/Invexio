@@ -8,11 +8,6 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>Material_Return_Line_Item__c.MRLI_Standard</members>
-        <members>Material_Return__c.Standard</members>
-        <name>CompactLayout</name>
-    </types>
-    <types>
         <members>Account.Vendor_Type__c</members>
         <members>Barcode_Scan__c.Destination__c</members>
         <members>Barcode_Scan__c.Notes__c</members>
@@ -48,30 +43,6 @@
         <members>Cycle_Count__c.Variance__c</members>
         <members>Location.Active__c</members>
         <members>Location.Assigned_Driver__c</members>
-        <members>Material_Return_Line_Item__c.Description__c</members>
-        <members>Material_Return_Line_Item__c.Material_Return__c</members>
-        <members>Material_Return_Line_Item__c.Product_Item__c</members>
-        <members>Material_Return_Line_Item__c.Product_Request_Line_Item__c</members>
-        <members>Material_Return_Line_Item__c.Product_Transfer__c</members>
-        <members>Material_Return_Line_Item__c.Product__c</members>
-        <members>Material_Return_Line_Item__c.Quantity_Returned__c</members>
-        <members>Material_Return_Line_Item__c.Quantity_Unit_of_Measure__c</members>
-        <members>Material_Return_Line_Item__c.Source_Location__c</members>
-        <members>Material_Return_Line_Item__c.Status__c</members>
-        <members>Material_Return__c.Account__c</members>
-        <members>Material_Return__c.Amount_Refunded__c</members>
-        <members>Material_Return__c.Case__c</members>
-        <members>Material_Return__c.Description__c</members>
-        <members>Material_Return__c.Inventory_Location__c</members>
-        <members>Material_Return__c.Product_Request__c</members>
-        <members>Material_Return__c.Repayment_Method__c</members>
-        <members>Material_Return__c.Return_Method__c</members>
-        <members>Material_Return__c.Return_Reason__c</members>
-        <members>Material_Return__c.Returned_By__c</members>
-        <members>Material_Return__c.Status__c</members>
-        <members>Material_Return__c.Tracking_Number__c</members>
-        <members>Material_Return__c.Vendor__c</members>
-        <members>Material_Return__c.Work_Order__c</members>
         <members>Product2.EnergyAid_Product_SKU__c</members>
         <members>Product2.PF_Abbrivation__c</members>
         <members>Product2.PTM_Abbreviation__c</members>
@@ -136,7 +107,7 @@
         <members>Material_Return__c</members>
         <name>CustomObject</name>
     </types>
-    <types>
+    <!-- <types>
         <members>Add_Price_on_Serialized_Product</members>
         <members>Create_Receive_Serialized_Transfers</members>
         <members>Create_Serialized_Products</members>
@@ -163,11 +134,7 @@
         <members>XX_Technician_Inventory_Return</members>
         <members>XX_Technician_Inventory_Return_New</members>
         <name>Flow</name>
-    </types>
-    <types>
-        <members>Scheduling_Status</members>
-        <name>GlobalValueSet</name>
-    </types>
+    </types> -->
     <types>
         <members>Barcode_Scan__c-Barcode Scan Layout</members>
         <members>Cycle_Count_Date__c-Cycle Count Date Layout</members>
