@@ -118,6 +118,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>RMA_Request__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>RMA Request</label>
+        <referenceTo>RMA_Requests__c</referenceTo>
+        <relationshipLabel>Serialized Products</relationshipLabel>
+        <relationshipName>Serialized_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Remaining_Quantity__c</fullName>
         <externalId>false</externalId>
         <formula>Total_Quantity__c -  Used_Quantity__c</formula>
@@ -157,6 +168,11 @@
                     <default>false</default>
                     <label>Product Request</label>
                 </value>
+                <value>
+                    <fullName>RMA Request</fullName>
+                    <default>false</default>
+                    <label>RMA Request</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -172,6 +188,7 @@
     </fields>
     <fields>
         <fullName>Total_Quantity__c</fullName>
+        <defaultValue>1</defaultValue>
         <externalId>false</externalId>
         <label>Original Quantity</label>
         <precision>18</precision>

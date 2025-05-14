@@ -18,6 +18,30 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>RMA_Request_Line_Item__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>RMA Request Line Item</label>
+        <referenceTo>RMA_Request_Line_Item__c</referenceTo>
+        <relationshipLabel>Product Transfers</relationshipLabel>
+        <relationshipName>Product_Transfers</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Request__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>RMA Request</label>
+        <referenceTo>RMA_Requests__c</referenceTo>
+        <relationshipLabel>Product Transfers</relationshipLabel>
+        <relationshipName>Product_Transfers</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>SP_created_frm_btn__c</fullName>
         <defaultValue>false</defaultValue>
         <label>SP_created_frm_btn</label>
@@ -61,5 +85,4 @@
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
-    <enableFeeds>true</enableFeeds>
 </CustomObject>

@@ -1,0 +1,14 @@
+<!--apex:page standardController="Cycle_Count_Date__c" extensions="SendRecountNotificationController" action="{!sendNotification}">
+<apex:form >
+<apex:inputHidden value="{!ccd.Id}"/>
+</apex:form>
+</apex:page-->
+<apex:page controller="SendRecountNotificationController" lightningStylesheets="true">
+    <apex:form >
+        Enter comma separated cc addresses 
+        <apex:inputTextarea value="{!ccAddresses}" />
+        <br/>
+        <apex:commandButton value="Save" action="{!sendNotification}"/>
+        
+    </apex:form>
+</apex:page>

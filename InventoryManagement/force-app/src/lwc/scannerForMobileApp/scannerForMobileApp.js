@@ -11,6 +11,7 @@ export default class BarcodeScannerExample extends LightningElement {
     myScanner;
     scanButtonDisabled = false;
     locationScanned = true;
+    @track locationName = '';
     @track scannedBarcodeList = [];
     @track scannedcodeList = [];
     @track scannedCodesWithQuantity = [];
@@ -26,6 +27,7 @@ export default class BarcodeScannerExample extends LightningElement {
     @track scanVal;
     @track productName;
     @track locationId;
+    @track quantityUnitOfMeasure;
 
     connectedCallback() {
         this.myScanner = getBarcodeScanner();
@@ -108,12 +110,13 @@ export default class BarcodeScannerExample extends LightningElement {
         
         fetchLocation({ locationId : result.value})
             .then((result1) => {
-                if(result1 == false){
+                if(result1 == 'false'){
                     this.showErrorMessage('Scanned Location does not exist. Please scan the correct location QR code');
                 }
                 else{
                     this.locationId = result.value;
                     this.locationScanned = false;
+                    this.locationName = result1;
                     this.showSuccessMessage('Location found and saved');
                 }
             })
@@ -136,6 +139,7 @@ export default class BarcodeScannerExample extends LightningElement {
                         this.totalQuantity = result11.TotalQuantity;
                         this.productName = result11.ProductName;
                         this.productSKU = result11.ProductSKU;
+                        this.quantityUnitOfMeasure = result11.QOM;
                         
                         fetchActualQuantity({code: result.value, locationId: this.locationId })
                         .then((result1) => {
@@ -199,7 +203,7 @@ export default class BarcodeScannerExample extends LightningElement {
         // Process scanned barcodes
         combinedCycleCount({ barcodes: this.scannedBarcodeList, locationId : this.locationId })
             .then((result) => {
-                if (result.startsWith('Error: QR(s) already have cycle count record(s).')) {
+                if (result.startsWith('Error')) {
                     this.errorTitle = 'Error';
                     this.errorMessage = result;
                     this.showErrorAlert = true;

@@ -51,6 +51,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Product_Type_Sub__c</fullName>
+        <description>Product Type (Sub)</description>
+        <label>Product Type (Sub)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Serialized__c</fullName>
         <formula>Product2.IsSerialized</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
