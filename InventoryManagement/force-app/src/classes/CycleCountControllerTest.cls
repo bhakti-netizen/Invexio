@@ -131,10 +131,12 @@ public class CycleCountControllerTest {
         ccdWrapper.StartDate = '2025-03-03T11:45:00.000Z'; //DateTime.now().format();
         ccdWrapper.EndDate = '2025-03-10T10:45:00.000Z';//(DateTime.now()+1).format();
         ccdWrapper.Locations = (String)loc.Id;
-        ccdWrapper.Products = (String)([Select Id From Product2 LIMIT 1].Id);
+        ccdWrapper.Products = (String)([Select Id From product2 LIMIT 1].Id);
         ccdWrapper.ProductFamily = 'Inventory';
         ccdWrapper.ProductTypeMain = 'Module';
         ccdWrapper.ProductTypeSub = 'Module';
+         ccdWrapper.Technicians = sr.Id;
+        ccdWrapper.TimeFrame = 'Weekly';
         String ccdJson = JSON.serialize(ccdWrapper);
         CycleCountController.saveCycleCountDates(ccdJson);
         
@@ -154,10 +156,12 @@ public class CycleCountControllerTest {
         cc.Recount_Needed__c = True;
         update cc;
         
-		CycleCountController.sentRecountNotification(cc.Cycle_Count_Version__r.Cycle_Count_Date__c);
+		CycleCountController.sentRecountNotification(cc.Cycle_Count_Version__r.Cycle_Count_Date__c, new String[]{});
         
         CycleCountController.checkForDuplicates('SP001', loc1.Id, 10);
         
     }
+
+ 
 
 }

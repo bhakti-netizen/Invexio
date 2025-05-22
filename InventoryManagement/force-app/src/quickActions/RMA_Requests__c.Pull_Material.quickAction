@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <flowDefinition>WW_Technician_Inventory_Return_RMA_Pull_Material</flowDefinition>
-    <label>Pull Material</label>
-    <optionsCreateFeedItem>false</optionsCreateFeedItem>
-    <type>Flow</type>
-</QuickAction>

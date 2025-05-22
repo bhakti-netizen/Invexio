@@ -40,7 +40,7 @@ public class CycleCountController {
 
         // Map to store ProductItem records based on barcode
         Map<String, ProductItem> productItemMap = new Map<String, ProductItem>();
-        for(ProductItem nsp : [SELECT Id, SerialNumber, Product2Id,ProductItemNumber, ProductName, LocationId, EnergyAid_Product_SKU__c, Name__c FROM ProductItem WHERE IsProduct2Serialized = false]){
+        for(ProductItem nsp : [SELECT Id, SerialNumber, Product2Id,ProductItemNumber, ProductName, LocationId, Name__c FROM ProductItem WHERE IsProduct2Serialized = false]){
             // productItemMap.put(nsp.ProductItemNumber, nsp); //Commented to use Product SKU in cycle counting for Non serialized products
             productItemMap.put(nsp.Name__c + '##' + (String.valueOf(nsp.LocationId).substring(0,15)) , nsp);
             
@@ -196,291 +196,6 @@ public class CycleCountController {
 
     }
 
-    
-    /*public static string createCycleCountRecordForSP(Set<String> barcodes, Map<String, SerializedProduct> serProdMap, Id locationId1, Map<String, String> actualBarcodeMapping){
-        String msg = '';
-        System.debug('@@barcodeList = '+barcodes);
-        try{
-
-            system.debug('@@SerProdMap = '+serProdMap);
-
-            //Name vs CCD
-            Map<String, Cycle_Count_Date__c> ccdMap = new Map<String, Cycle_Count_Date__c>();
-            for(Cycle_Count_Date__c ccd : [Select Id, Name, Location__c, Cycle_Count_Date__c From Cycle_Count_Date__c]){
-                ccdMap.put(ccd.Name, ccd);
-            }
-
-            //Name vs CCV
-            Map<String, Cycle_Count_Version__c> ccvMap = new Map<String, Cycle_Count_Version__c>();
-            for(Cycle_Count_Version__c ccv : [Select Id, Active__c, Name, Location__c, Product__c From Cycle_Count_Version__c]){
-                ccvMap.put(ccv.Name, ccv);
-            }
-            system.debug('@@ccvMap = '+ccvMap);
-
-            //Serialized Product vs Cycle Count for Today
-            Map<String, Cycle_Count__c> ccMap = new Map<String, Cycle_Count__c>();
-            for(Cycle_Count__c cc : [Select Id, Serialized_Product__c, Cycle_Count_Version__c, Active_Count__c,Actual_Quantity__c  From Cycle_Count__c Where CreatedDate = TODAY]){
-                ccMap.put(cc.Serialized_Product__c, cc);
-            }
-
-            Id locationId = locationId1;
-            // List<ServiceResource> sr = [Select id, LocationId, RelatedRecordId from ServiceResource where RelatedRecordId =: UserInfo.getUserId() Limit 1];
-            // if(sr.size() > 0){
-            //     locationId = sr[0].LocationId;
-            // }
-            // else{
-            //    locationId =  locationId1;
-            // }
-            String todaysDate = String.valueOf(Date.Today());
-            system.debug('@@locationId = '+locationId);
-            system.debug('@@todaysDate = '+todaysDate);
-
-            String locationName = [Select Id, Name From Location Where Id = :locationId LIMIT 1].Name;
-
-            Cycle_Count_Date__c ccd;
-            if(!ccdMap.containsKey(todaysDate + ' - ' + locationName)){
-                
-                ccd = new Cycle_Count_Date__c();
-                ccd.Name = todaysDate + ' - ' + locationName;
-                ccd.Location__c = locationId;
-                ccd.Cycle_Count_Date__c = Date.Today();
-                insert ccd;
-                
-            }
-            else{
-                ccd = ccdMap.get(todaysDate + ' - ' + locationName);
-            }
-
-
-            List<Cycle_Count__c> ccToInsert = new List<Cycle_Count__c>();
-            List<Cycle_Count__c> ccToUpdate = new List<Cycle_Count__c>();
-            List<SerializedProduct> spToUpdate = new List<SerializedProduct>();
-            for(String s : barcodes){
-                system.debug('@@in for');
-                if(serProdMap.containsKey(s)){
-                    SerializedProduct sp = serProdMap.get(s);
-
-                    Integer totalQuantity = Integer.valueOf(actualBarcodeMapping.get(s+ '##' +locationId).split('#\\$#')[1]);
-                    Integer actualQuantity = Integer.valueOf(actualBarcodeMapping.get(s+ '##' +locationId).split('#\\$#')[2]);
-
-                    if(!ccvMap.containsKey(sp.Product_Name__c + ' - ' + todaysDate + ' - ' + locationName)){
-                        Cycle_Count_Version__c ccv = new Cycle_Count_Version__c();
-                        ccv.Name = sp.Product_Name__c + ' - ' + todaysDate + ' - ' + locationName;
-                        ccv.Location__c = locationId;
-                        ccv.Product__c = sp.Product2Id;
-                        ccv.Cycle_Count_Date__c = ccd.Id;
-                        insert ccv;
-                        ccvMap.put(ccv.Name, ccv);
-                        system.debug('@@inserted ccv'+ccv);
-
-                        Cycle_Count__c cc = new Cycle_Count__c();
-                        cc.Serialized_Product__c = sp.Id;
-                        cc.Cycle_Count_Version__c = ccv.Id;
-                        cc.Product_Item__c = sp.ProductItemId;
-                        cc.Active_Count__c = true;
-                        cc.Total_Listed_Quantity__c = totalQuantity;
-                        cc.Actual_Quantity__c = actualQuantity;
-                        ccToInsert.add(cc);
-                        system.debug('@@added cc'+cc);
-
-                    }
-                    else{
-                        if(!ccMap.containsKey(sp.Id)){
-                            
-                            Cycle_Count__c cc = new Cycle_Count__c();
-                            cc.Serialized_Product__c = sp.Id;
-                            cc.Cycle_Count_Version__c = ccvMap.get(sp.Product_Name__c + ' - ' + todaysDate + ' - ' + locationName).Id;
-                            cc.Product_Item__c = sp.ProductItemId;
-                            cc.Active_Count__c = true;
-                            cc.Total_Listed_Quantity__c = totalQuantity;
-                            cc.Actual_Quantity__c = actualQuantity;
-                            ccToInsert.add(cc);
-                            system.debug('@@added cc in else');
-                        }
-                        else{
-                            Cycle_Count__c cc = ccMap.get(sp.Id);
-                            cc.Actual_Quantity__c += actualQuantity;
-                            ccToUpdate.add(cc);
-                        }
-                    }
-
-                    // //Update Quantity on Serialized Product
-                    // if(actualBarcodeMapping.containsKey(s)){
-                    //     Integer totalQuantity = Integer.valueOf(actualBarcodeMapping.get(s).split('#\\$#')[1]);
-                    //     Integer usedQuantity = Integer.valueOf(actualBarcodeMapping.get(s).split('#\\$#')[2]);
-                    //     // sp.Total_Quantity__c = totalQuantity;
-                    //     sp.Used_Quantity__c = usedQuantity;
-                    //     spToUpdate.add(sp);
-                    // }
-                }
-
-
-            }
-
-            // if(spToUpdate.size() > 0){
-            //     System.debug('@@Updating SPs');
-            //     update spToUpdate;
-            //     msg = 'Updated Quantities on Serialized Products. ';
-            // }
-            if(ccToInsert.size() > 0){
-                system.debug('@@size > 0');
-                insert ccToInsert;
-                msg += 'Total ' + ccToInsert.size() + ' Cycle Count records have been updated/created successfully for Serialized Products.';
-            }
-            if(ccToUpdate.size() > 0){
-                update ccToUpdate;
-                msg += 'Total ' + ccToUpdate.size() + ' Cycle Count records have been updated successfully for Serialized Products.';
-            }
-            if(ccToInsert.size() == 0 && ccToUpdate.size() == 0) {
-                msg = 'No Cycle Count records were created/updated. Ensure that the provided barcodes are valid and meet the necessary criteria.';
-            }
-
-
-        }catch(QueryException e){
-            msg = 'Invalid QR Code.';
-        }catch(Exception e) {
-            msg = e.getMessage();    
-        }
-        return msg;
-
-    }
-
-     
-    public static string createCycleCountRecordForNSP(List<String> barcodes, Map<String, ProductItem> productItemMap, Id locationId2, Map<String, String> actualBarcodeMapping) {
-            String msg = '';
-            try {
-
-                System.debug('ProductItem Map: ' + productItemMap);
-
-                if(productItemMap.isEmpty()) {
-                    return 'No ProductItem records found for the provided barcodes.';
-                }
-
-                // Map to store Cycle Count Date records
-                Map<String, Cycle_Count_Date__c> ccdMap = new Map<String, Cycle_Count_Date__c>();
-                for(Cycle_Count_Date__c ccd : [SELECT Id, Name, Location__c, Cycle_Count_Date__c FROM Cycle_Count_Date__c]){
-                    ccdMap.put(ccd.Name, ccd);
-                }
-
-                // Map to store Cycle Count Version records
-                Map<String, Cycle_Count_Version__c> ccvMap = new Map<String, Cycle_Count_Version__c>();
-                for(Cycle_Count_Version__c ccv : [SELECT Id, Active__c, Name, Location__c, Product__c FROM Cycle_Count_Version__c]){
-                    ccvMap.put(ccv.Name, ccv);
-                }
-
-                // Map to store existing Cycle Count records for today
-                Map<String, Cycle_Count__c> ccMap = new Map<String, Cycle_Count__c>();
-                for(Cycle_Count__c cc : [SELECT Id, Product_Item__c, Cycle_Count_Version__c, Active_Count__c, Actual_Quantity__c FROM Cycle_Count__c WHERE CreatedDate = TODAY]){
-                    ccMap.put(cc.Product_Item__c, cc);
-                }
-
-                Id locationId = locationId2;
-                // Get locationId
-                // Id locationId = [SELECT Id, LocationId FROM ServiceResource WHERE RelatedRecordId = :UserInfo.getUserId()].LocationId;
-                // List<ServiceResource> sr = [Select id, LocationId, RelatedRecordId from ServiceResource where RelatedRecordId =: UserInfo.getUserId() Limit 1];
-                // if(sr.size() > 0){
-                //     locationId = sr[0].LocationId;
-                // }
-                // else{
-                //     locationId =  locationId2;
-                // }
-                String todaysDate = String.valueOf(Date.Today());
-
-                String locationName = [Select Id, Name From Location Where Id = :locationId LIMIT 1].Name;
-
-                Cycle_Count_Date__c ccd;
-                if(!ccdMap.containsKey(todaysDate + ' - ' + locationName)){
-                    ccd = new Cycle_Count_Date__c(
-                        Name = todaysDate + ' - ' + locationName,
-                        Location__c = locationId,
-                        Cycle_Count_Date__c = Date.Today()
-                    );
-                    insert ccd;
-                } else {
-                    ccd = ccdMap.get(todaysDate + ' - ' + locationName);
-                }
-
-                List<Cycle_Count__c> ccToInsert = new List<Cycle_Count__c>();
-                List<Cycle_Count__c> ccToUpdate = new List<Cycle_Count__c>();
-                List<ProductItem> piToUpdate = new List<ProductItem>();
-                for(String barcode : barcodes){
-                    if(productItemMap.containsKey(barcode+ '##' +locationId)){
-                        
-                        ProductItem nsp = productItemMap.get(barcode+ '##' +locationId);
-
-                        Integer totalQuantity = Integer.valueOf(actualBarcodeMapping.get(barcode+ '##' +locationId).split('#\\$#')[1]);
-                        Integer actualQuantity = Integer.valueOf(actualBarcodeMapping.get(barcode+ '##' +locationId).split('#\\$#')[2]);
-
-                        if(!ccvMap.containsKey(nsp.ProductName + ' - ' + todaysDate + ' - ' + locationName)){
-                            Cycle_Count_Version__c ccv = new Cycle_Count_Version__c(
-                                Name = nsp.ProductName + ' - ' + todaysDate + ' - ' + locationName,
-                                Location__c = locationId,
-                                Product__c = nsp.Product2Id,
-                                Cycle_Count_Date__c = ccd.Id
-                            );
-                            insert ccv;
-                            ccvMap.put(ccv.Name, ccv);
-
-                            Cycle_Count__c cc = new Cycle_Count__c(
-                                Product_Item__c = nsp.Id,
-                                Cycle_Count_Version__c = ccv.Id,
-                                Active_Count__c = true,
-                                Total_Listed_Quantity__c = totalQuantity,
-                                Actual_Quantity__c = actualQuantity
-                            );
-                            ccToInsert.add(cc);
-                            
-                        } else {
-                            if(!ccMap.containsKey(nsp.Id)){                 //insert case
-                                Cycle_Count__c cc = new Cycle_Count__c(
-                                    Product_Item__c = nsp.Id,
-                                    Cycle_Count_Version__c = ccvMap.get(nsp.ProductName + ' - ' + todaysDate + ' - ' + locationName).Id,
-                                    Active_Count__c = true,
-                                    Total_Listed_Quantity__c = totalQuantity,
-                                    Actual_Quantity__c = actualQuantity
-                                );
-                                ccToInsert.add(cc);
-                            }
-                            else{                                           //update case
-                                Cycle_Count__c cc = ccMap.get(nsp.Id);
-                                cc.Actual_Quantity__c += actualQuantity;
-                                ccToUpdate.add(cc);
-                            }
-                        }
-
-                        // //Update Quantity on Serialized Product
-                        // if(actualBarcodeMapping.containsKey(barcode)){
-                        //     Integer totalQuantity = Integer.valueOf(actualBarcodeMapping.get(barcode).split('#\\$#')[1]);
-                        //     Integer usedQuantity = Integer.valueOf(actualBarcodeMapping.get(barcode).split('#\\$#')[2]);
-                        //     nsp.Overall_Quantity__c = totalQuantity;
-                        //     nsp.Allocated_Inventory__c = usedQuantity;
-                        //     piToUpdate.add(nsp);
-                        // }
-                    }
-                }
-
-                // if(piToUpdate.size() > 0){
-                //     System.debug('@@updating PI');
-                //     update piToUpdate;
-                //     msg = 'Updated Quantities on Product Items. ';
-                // }
-                if(ccToInsert.size() > 0){
-                    insert ccToInsert;
-                    msg += 'Total ' + ccToInsert.size() + ' Cycle Count records have been created successfully for Non-Serialized Products.';
-                } 
-                if(ccToUpdate.size() > 0){
-                    update ccToUpdate;
-                    msg += 'Total ' + ccToUpdate.size() + ' Cycle Count records have been updated successfully for Non-Serialized Products.';
-                }
-                if(ccToInsert.size() == 0 && ccToUpdate.size() == 0) {
-                    msg = 'No Cycle Count records were created/updated. Ensure that the provided barcodes are valid and meet the necessary criteria.';
-                }
-            } catch(Exception e) {
-                msg = 'An error occurred: ' + e.getMessage();    
-            }
-            return msg;
-    }*/
-
     @AuraEnabled
     public static Decimal fetchTotalQuantityForScannedProduct(String code){
 
@@ -502,23 +217,23 @@ public class CycleCountController {
     @AuraEnabled
     public static ProductWrapper fetchProductNameForScannedProduct(String code, String locationId){
 
-        List<SerializedProduct> spList = [Select Id,Product_Name__c, EnergyAid_Product_SKU__c, Total_Quantity__c, Product2.QuantityUnitOfMeasure From SerializedProduct Where SerialNumber = :code];
+        List<SerializedProduct> spList = [Select Id,Product_Name__c,  Total_Quantity__c, Product2.QuantityUnitOfMeasure From SerializedProduct Where SerialNumber = :code];
         if(spList.size() > 0){
             ProductWrapper wrapper = new ProductWrapper();
             wrapper.ProductName = spList[0].Product_Name__c;
-            wrapper.ProductSKU = spList[0].EnergyAid_Product_SKU__c;
+            // wrapper.ProductSKU = spList[0].EnergyAid_Product_SKU__c;
             wrapper.TotalQuantity = spList[0].Total_Quantity__c;
             wrapper.QOM = spList[0].Product2.QuantityUnitOfMeasure;
             return wrapper;
             // return spList[0].Product_Name__c + '##' + spList[0].EnergyAid_Product_SKU__c;
         }
         else{
-            // List<ProductItem> piList = [Select Id,Product2.Name, EnergyAid_Product_SKU__c, QuantityOnHand From ProductItem Where ProductItemNumber =: code];
-            List<ProductItem> piList = [Select Id,Product2.Name, EnergyAid_Product_SKU__c, QuantityOnHand, Name__c, QuantityUnitOfMeasure From ProductItem Where Name__c =: code];
+            // List<ProductItem> piList = [Select Id,Product2.Name,  QuantityOnHand From ProductItem Where ProductItemNumber =: code];
+            List<ProductItem> piList = [Select Id,Product2.Name,  QuantityOnHand, Name__c, QuantityUnitOfMeasure From ProductItem Where Name__c =: code];
             if(piList.size() > 0){
                 ProductWrapper wrapper = new ProductWrapper();
                 wrapper.ProductName = piList[0].Product2.Name;
-                wrapper.ProductSKU = piList[0].EnergyAid_Product_SKU__c;
+                // wrapper.ProductSKU = piList[0].EnergyAid_Product_SKU__c;
                 wrapper.TotalQuantity = piList[0].QuantityOnHand;
                 wrapper.QOM = piList[0].QuantityUnitOfMeasure;
                 return wrapper;
@@ -613,7 +328,7 @@ public class CycleCountController {
 
             // Map to store ProductItem records based on barcode
             Map<String, ProductItem> productItemMap = new Map<String, ProductItem>();
-            for(ProductItem nsp : [SELECT Id, SerialNumber, Product2Id,ProductItemNumber, ProductName, LocationId, EnergyAid_Product_SKU__c, Name__c FROM ProductItem WHERE IsProduct2Serialized = false]){
+            for(ProductItem nsp : [SELECT Id, SerialNumber, Product2Id,ProductItemNumber, ProductName, LocationId,  Name__c FROM ProductItem WHERE IsProduct2Serialized = false]){
                 // productItemMap.put(nsp.ProductItemNumber, nsp); //Commented to use Product SKU in cycle counting for Non serialized products
                 productItemMap.put(nsp.Name__c+'##'+nsp.LocationId , nsp);
                 
@@ -702,15 +417,6 @@ public class CycleCountController {
 
                 if(serProdMap.containsKey(barcode)){
 
-                    // if(mapOfSPvsTransfers.containsKey(serProdMap.get(barcode).Id)){
-                    //     for(ProductTransfer tempPT : mapOfSPvsTransfers.get(serProdMap.get(barcode).Id)){
-                    //         if(tempPT.SourceLocationId == serProdMap.get(barcode).ProductItem.LocationId
-                    //         && tempPT.DestinationLocationId == locationId1
-                    //         && tempPT.QuantitySent == 1){
-                    //             return 'Warning! A similar type of product transfer exists!!';
-                    //         }
-                    //     }
-                    // }
                     ProductTransfer pt = new ProductTransfer();
                     pt.Product2Id = serProdMap.get(barcode).Product2Id;
                     pt.SourceLocationId = serProdMap.get(barcode).ProductItem.LocationId;
@@ -816,20 +522,7 @@ public class CycleCountController {
                         }
                         
                         Boolean createTransfers = false;
-                        // if(prodVsQuantLocations.containsKey(productId)){
-                        //     for(ProductTransfer tempPT : prodVsQuantLocations.get(productId)){
-                        //         if(tempPT.SourceLocationId == sourceLocation 
-                        //         && tempPT.DestinationLocationId == locationId2 
-                        //         && tempPT.QuantitySent == quantity){
-                        //             return 'Warning!';
-                        //         }
-                        //         else{
-                        //             createTransfers= true;
-
-                        //         }
-                        //     }
-                        // }
-                        // else{
+                        
                             ProductTransfer pt = new ProductTransfer();
                             pt.Product2Id = productId;
                             if(resource != null){
@@ -841,35 +534,12 @@ public class CycleCountController {
                             pt.IsReceived = true;
                             transfers.add(pt);
                             createTransfers = false;
-                        // }
                         
-                        // if(createTransfers == true){
-                        //     ProductTransfer pt = new ProductTransfer();
-                        //     pt.Product2Id = productId;
-                        //     pt.SourceLocationId = sourceLocation;
-                        //     pt.DestinationLocationId = locationId2;
-                        //     pt.QuantitySent = quantity;
-                        //     transfers.add(pt);
-                        // }
                     }
                 }
                 
             }
 
-            // for(Product2 prod : [Select Id, EnergyAid_Product_SKU__c From Product2 Where EnergyAid_Product_SKU__c In :barcodes]){
-            //     mapOfSKUvsProduct.put(prod.EnergyAid_Product_SKU__c, prod);
-            // }
-
-            // for(String barcode : barcodes){
-            //     if(mapOfSKUvsProduct.containsKey(barcode)){
-            //         ProductTransfer pt = new ProductTransfer();
-            //         pt.Product2Id = mapOfSKUvsProduct.get(barcode).Id;
-            //         pt.SourceLocationId = locationId2;
-            //         pt.DestinationLocationId = locationId2;
-            //         pt.QuantitySent = Integer.valueOf(actualBarcodeMapping.get(barcode+ '##' +locationId2).split('#\\$#')[1]);
-            //         transfers.add(pt);
-            //     }
-            // }
             if(transfers.size() > 0){
                 insert transfers;
             }
@@ -1084,8 +754,8 @@ public class CycleCountController {
         System.debug('@@Got the CCD ID = '+ccdID);
 
         Map<Id, List<Cycle_Count__c>> techVsCCMap = new Map<Id, List<Cycle_Count__c>>();
-        for(Cycle_Count__c cc : [ Select Id, Technician_Inventory_Person__c, Actual_Quantity__c, Total_Listed_Quantity__c, Product_Name__c, Product_SKU__c, Variance__c, Quantity_before_Recount__c, 
-                                   Product_Item__r.EnergyAid_Product_SKU__c,Product_Item__r.Product_Type_Sub__c, Product_Item__r.ProductName, Product_Item__r.QuantityUnitOfMeasure
+        for(Cycle_Count__c cc : [ Select Id, Technician_Inventory_Person__c, Actual_Quantity__c, Total_Listed_Quantity__c, Product_Name__c, Variance__c, Quantity_before_Recount__c, 
+                                   Product_Item__r.Product_Type_Sub__c, Product_Item__r.ProductName, Product_Item__r.QuantityUnitOfMeasure
                                     From Cycle_Count__c Where Recount_Needed__c = true 
                                     AND Cycle_Count_Version__r.Cycle_Count_Date__c = :ccdID]) {
 
@@ -1133,7 +803,7 @@ public class CycleCountController {
             Integer i = 1;
             for(Cycle_Count__c cc : techVsCCMap.get(userId)) {
                 emailBody += '<tr>';
-                emailBody += '<td>' + cc.Product_Item__r.EnergyAid_Product_SKU__c + '</td>';
+                // emailBody += '<td>' + cc.Product_Item__r.EnergyAid_Product_SKU__c + '</td>';
                 emailBody += '<td>' + cc.Product_Item__r.Product_Type_Sub__c + '</td>';
                 emailBody += '<td>' + cc.Product_Item__r.ProductName + '</td>';
                 emailBody += '<td>' + cc.Product_Item__r.QuantityUnitOfMeasure + '</td>';
