@@ -18,9 +18,10 @@
     }
   ],
   "name": "InventoryManagement",
-  "namespace": "Invenxio",
+  "namespace": "Invexio",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "62.0",
   "packageAliases": {
+    "Invexio": "0HodM0000000qhlSAA"
   }
 }
