@@ -10,7 +10,7 @@
     },
     {
       "path": "force-app",
-      "package": "InventroTest",
+      "package": "Invexio",
       "versionName": "ver 0.1",
       "versionNumber": "0.1.0.NEXT",
       "default": false,
@@ -18,11 +18,9 @@
     }
   ],
   "name": "InventoryManagement",
-  "namespace": "InventroTest",
+  "namespace": "Invenxio",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "62.0",
   "packageAliases": {
-    "InventoryManagement": "0HodM0000000dhJSAQ",
-    "InventroTest": "0HodM0000000en3SAA"
   }
 }
