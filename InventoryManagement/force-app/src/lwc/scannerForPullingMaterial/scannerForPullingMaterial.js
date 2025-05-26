@@ -2,32 +2,39 @@
 import { LightningElement, track,api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { getBarcodeScanner } from 'lightning/mobileCapabilities';
-import combinedCycleCount from "@salesforce/apex/CycleCountController.combinedCycleCount";
 import fetchLocation from "@salesforce/apex/CycleCountController.fetchLocation";
-import fetchActualQuantity from "@salesforce/apex/CycleCountController.fetchActualQuantityForScannedProduct";
 import fetchProductName from "@salesforce/apex/CycleCountController.fetchProductNameForScannedProduct";
+import combinedPullMaterials from "@salesforce/apex/CycleCountController.combinedPullMaterials";
+import fetchTechnicianDetails from "@salesforce/apex/CycleCountController.fetchTechnicianDetails";
+// import checkForDuplicates from "@salesforce/apex/CycleCountController.checkForDuplicates";
 
-export default class BarcodeScannerExample extends LightningElement {
+export default class ScannerForPullMaterial extends LightningElement {
     myScanner;
-    scanButtonDisabled = false;
+    scanButtonDisabled = true;
     locationScanned = true;
-    @track locationName = '';
     @track scannedBarcodeList = [];
     @track scannedcodeList = [];
     @track scannedCodesWithQuantity = [];
     showErrorAlert = false;
     @api errorTitle;
     @api errorMessage;
+    @track showWarning = false;
     @track showPopup = false;
     @track totalQuantity = 0;
     @track actualQuantity = 0;
     @track usedQuantity = 0;
     @track productSKU;
+    @track quantityUnitOfMeasure;
     @track resValAfterScan;
     @track scanVal;
     @track productName;
     @track locationId;
-    @track quantityUnitOfMeasure;
+    @track quantity = 0;
+    @track disableFinish = true;
+    @track technicianId;
+    @track scanButtonTechnicianDisabled = false;
+    @track showPopupForTechnician = false;
+    @track popupTechnicianId;
 
     connectedCallback() {
         this.myScanner = getBarcodeScanner();
@@ -37,19 +44,13 @@ export default class BarcodeScannerExample extends LightningElement {
 
     }
 
-    handleTotalChange(event) {
-        this.totalQuantity = event.target.value;
+    handleQuantityChange(event) {
+        this.quantity = event.target.value;
     }
 
-    handleActualChange(event){
-        this.actualQuantity=event.target.value;
-    }
-
-    handleUsedChange(event) {
-        this.usedQuantity = event.target.value;
-    }
-
+    
     handleBeginScanClick() {
+        // alert('Check alert!!');
         this.startScan(); // Start scanning
     }
 
@@ -81,6 +82,33 @@ export default class BarcodeScannerExample extends LightningElement {
         }
     }
 
+    handleTechnicianScanner(){
+        if (this.myScanner != null && this.myScanner.isAvailable()) {
+            const scanningOptions = {
+                barcodeTypes: [this.myScanner.barcodeTypes.QR],
+                instructionText: 'Scan a QR Code',
+                successText: 'Scanning complete.'
+            };
+
+            this.myScanner
+                .beginCapture(scanningOptions)
+                .then((result) => {
+                   this.handleScanResultForTechnician(result.value);
+                //    this.scanButtonDisabled = false;
+                   
+                })
+                .catch((error) => {
+                    this.handleError(error);
+                })
+                .finally(() => {
+                    this.myScanner.endCapture();
+                });
+        } else {
+            this.showErrorMessage('Barcode Scanner is not available.');
+        }
+    }
+
+
     startScan() {
         if (this.myScanner != null && this.myScanner.isAvailable()) {
             const scanningOptions = {
@@ -107,20 +135,45 @@ export default class BarcodeScannerExample extends LightningElement {
 
     handleScanResultForLocation(result) {
         
-        
         fetchLocation({ locationId : result.value})
             .then((result1) => {
-                if(result1 == 'false'){
+                if(result1 == false){
+                    
                     this.showErrorMessage('Scanned Location does not exist. Please scan the correct location QR code');
                 }
                 else{
                     this.locationId = result.value;
                     this.locationScanned = false;
-                    this.locationName = result1;
                     this.showSuccessMessage('Location found and saved');
                 }
             })
     } 
+
+    handleScanResultForTechnician(result) {
+
+        fetchTechnicianDetails({ scannedId : result})
+            .then((result1) => {
+                if(result1 == false){
+                    this.scanButtonDisabled = true;
+                    this.showPopupForTechnician = true;
+                    this.showErrorMessage('Scanned Technician does not exist. Please scan the correct Technician QR code');
+                }
+                else{
+                    this.technicianId = result;
+                    this.scanButtonDisabled = false;
+                    this.showPopupForTechnician = false;
+                }
+            })
+    }
+
+    popupTechnicianOnchange(event){
+        // this.popupTechnicianId = event.target.value;
+        this.popupTechnicianId = event.detail.recordId;
+    }
+
+    handlepopupTechnician(){
+        this.handleScanResultForTechnician(this.popupTechnicianId);
+    }
 
     handleScanResult(result) {
         this.scanVal=result.value;
@@ -140,14 +193,6 @@ export default class BarcodeScannerExample extends LightningElement {
                         this.productName = result11.ProductName;
                         this.productSKU = result11.ProductSKU;
                         this.quantityUnitOfMeasure = result11.QOM;
-                        
-                        fetchActualQuantity({code: result.value, locationId: this.locationId })
-                        .then((result1) => {
-                            this.actualQuantity = result1;
-                        })
-                        .catch((error1) => {
-                            console.log('Error fetching actual quantity');
-                        });
                         this.showPopup=true;
                     }
                 })
@@ -161,6 +206,29 @@ export default class BarcodeScannerExample extends LightningElement {
         }
        
     }
+
+    proceed(){
+        this.showWarning = false;
+        this.resValAfterScan =this.scanVal+'#$#'+this.quantity; 
+        if(this.scannedBarcodeList.includes(this.resValAfterScan) == false){
+            this.scannedBarcodeList.push(this.resValAfterScan);
+            let valsWithQuantity = this.scanVal+', Quantity = '+this.quantity; 
+            this.scannedCodesWithQuantity.push(valsWithQuantity);
+            this.showSuccessMessage('Barcode scanned successfully.');
+            this.showPopup=false;
+            this.quantity = 0;
+        }
+        this.disableFinish = false;
+        if (this.scannedBarcodeList.length === 0) {
+            this.showErrorMessage('No barcodes scanned.');
+            return;
+        }
+
+    }
+    doNotProceed(){
+        this.showWarning = false;
+    }
+
     handleSave() {
             if(this.totalQuantity == null || this.totalQuantity == undefined){
                 this.totalQuantity = 0;
@@ -171,17 +239,31 @@ export default class BarcodeScannerExample extends LightningElement {
             if(this.actualQuantity == null || this.actualQuantity == undefined){
                 this.actualQuantity = 0;
             }
-            this.resValAfterScan =this.scanVal+'#$#'+this.totalQuantity+'#$#'+this.usedQuantity; 
-            if(this.scannedBarcodeList.includes(this.resValAfterScan) == false){
-                this.scannedBarcodeList.push(this.resValAfterScan);
-                let valsWithQuantity = this.scanVal+', Total Quantity = '+this.totalQuantity+', Actual Quantity = '+this.usedQuantity; 
-                this.scannedCodesWithQuantity.push(valsWithQuantity);
-                this.showSuccessMessage('Barcode scanned successfully.');
-                this.showPopup=false;
-                this.totalQuantity = 0;
-                this.usedQuantity = 0;
-                this.actualQuantity = 0;
-            }
+
+            // checkForDuplicates({ barcode: this.scanVal, locationId : this.locationId, quantity : this.quantity })
+            // .then((result) => {
+            //     if (result.startsWith('Warning!')) {
+            //         this.showWarning = true;
+            //         this.showPopup = false;
+            //     } else {
+            //         this.showWarning = false;
+                    this.showPopup=false;
+                    this.resValAfterScan =this.scanVal+'#$#'+this.quantity; 
+                    if(this.scannedBarcodeList.includes(this.resValAfterScan) == false){
+                        this.scannedBarcodeList.push(this.resValAfterScan);
+                        let valsWithQuantity = this.scanVal+', Quantity = '+this.quantity; 
+                        this.scannedCodesWithQuantity.push(valsWithQuantity);
+                        this.showSuccessMessage('Barcode scanned successfully.');
+                        this.disableFinish = false;
+                        this.quantity = 0;
+                    }
+            //     }
+            // })
+            // .catch((error) => {
+            //     this.showErrorMessage('Error updating Pulling Materials: ' + error.body.message);
+            //     this.disableFinish = false;
+            // });
+
     }
 
     handleError(error) {
@@ -195,31 +277,38 @@ export default class BarcodeScannerExample extends LightningElement {
 
     handleFinishClick() {
         
+        this.disableFinish = true;
         if (this.scannedBarcodeList.length === 0) {
             this.showErrorMessage('No barcodes scanned.');
             return;
         }
 
         // Process scanned barcodes
-        combinedCycleCount({ barcodes: this.scannedBarcodeList, locationId : this.locationId })
+        combinedPullMaterials({ barcodes: this.scannedBarcodeList, locationId : this.locationId, showWarning : this.showWarning, technicianId: this.technicianId })
             .then((result) => {
-                if (result.startsWith('Error')) {
+                if (result.startsWith('Warning!')) {
                     this.errorTitle = 'Error';
-                    this.errorMessage = result;
+                    this.errorMessage = 'Transaction Stopped by Inventory Manager as duplicate exists.';
                     this.showErrorAlert = true;
+                    this.disableFinish = false;
+                    this.showWarning = true;
                 } else {
+                    this.showWarning = false;
                     this.showSuccessMessage(result);
                     // Clear the scanned barcode list after processing
                     this.scannedBarcodeList = [];
+                    this.disableFinish = false;
                 }
             })
             .catch((error) => {
-                this.showErrorMessage('Error updating Cycle Count records: ' + error.body.message);
+                this.showErrorMessage('Error updating Pulling Materials: ' + error.body.message);
+                this.disableFinish = false;
             });
     }
     
 
     showSuccessMessage(message) {
+        // alert('Check Toast message!! ');
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Success',

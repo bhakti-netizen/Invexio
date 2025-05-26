@@ -1,0 +1,3 @@
+trigger CycleCountVersionTrigger on Cycle_Count_Version__c (after insert) {
+    CycleCountHelper.createBulkCycleCountRecords(Trigger.New);
+}

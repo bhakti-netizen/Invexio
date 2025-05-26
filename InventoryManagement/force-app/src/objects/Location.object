@@ -7,15 +7,4 @@
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-    <fields>
-        <fullName>Assigned_Driver__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <label>Assigned Driver</label>
-        <referenceTo>ServiceResource</referenceTo>
-        <relationshipLabel>Locations</relationshipLabel>
-        <relationshipName>Locations</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
 </CustomObject>

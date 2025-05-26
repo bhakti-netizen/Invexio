@@ -1,34 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <fullName>Allocated_Inventory__c</fullName>
-        <businessStatus>Active</businessStatus>
-        <defaultValue>0.00</defaultValue>
-        <externalId>false</externalId>
-        <label>Allocated Inventory</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>EnergyAid_Product_SKU__c</fullName>
-        <externalId>false</externalId>
-        <formula>Product2.EnergyAid_Product_SKU__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>EnergyAid Product SKU</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Name__c</fullName>
         <externalId>false</externalId>
-        <formula>EnergyAid_Product_SKU__c</formula>
+        <formula>Product2.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Name</label>
         <required>false</required>
@@ -37,25 +12,11 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Overall_Quantity__c</fullName>
-        <defaultValue>0</defaultValue>
-        <externalId>false</externalId>
-        <inlineHelpText>Quantity remaining from all unused serialized products.</inlineHelpText>
-        <label>Overall Quantity</label>
-        <precision>18</precision>
+        <fullName>Product_Type_Sub__c</fullName>
+        <description>Product Type (Sub)</description>
+        <label>Product Type (Sub)</label>
         <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Serialized__c</fullName>
-        <formula>Product2.IsSerialized</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Serialized</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>TextArea</type>
     </fields>
 </CustomObject>

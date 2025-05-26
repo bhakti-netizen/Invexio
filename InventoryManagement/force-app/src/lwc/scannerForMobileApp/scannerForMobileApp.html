@@ -20,7 +20,10 @@
                 title="Open a camera view and look for a barcode to scan"
                 onclick={handleLocationScanner}>
             </lightning-button>
+            
+            
     </div>
+    
     <!-- The click-to-scan button;
          Disabled if BarcodeScanner isn't available -->
     <div class="slds-align_absolute-center slds-m-vertical_large">
@@ -52,6 +55,18 @@
     <!-- After a barcode is successfully scanned, 
          its value is displayed here: -->
     <template if:true={scannedBarcodeList}>
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+             slds-text-align_center slds-border_top slds-border_bottom">
+            <p>Scanned Location</p>
+            <b>{locationName}</b>
+        </div>
+        <!-- <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+             slds-text-align_center slds-border_top slds-border_bottom">
+             Scanned Location
+        </div>
+        <div>
+            <lightning-input type="text" value={locationName} readonly=true></lightning-input>
+        </div> -->
         <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
              slds-text-align_center slds-border_top slds-border_bottom">
             <p>Scanned Barcodes:</p>
@@ -87,7 +102,8 @@
                 <div class="slds-modal__content slds-p-around_medium">
                     <lightning-input type="text" label="Product Name" value={productName} readonly=true></lightning-input>
                     <lightning-input type="text" label="Product SKU" value={productSKU} readonly=true></lightning-input>
-                    <lightning-input type="number" label="Total Quantity" value={totalQuantity} onchange={handleTotalChange} readonly=true></lightning-input>
+                    <lightning-input type="text" label="Quantity Unit of Measure" value={quantityUnitOfMeasure} readonly=true></lightning-input>
+                    <lightning-input type="number" label="Total Listed Quantity" value={totalQuantity} onchange={handleTotalChange} readonly=true></lightning-input>
                     <lightning-input type="number" label="Actual Scanned Quantity (already scanned)" value={actualQuantity} onchange={handleActualChange} readonly=true></lightning-input>
                     <lightning-input type="number" label="Actual Quantity" value={usedQuantity} onchange={handleUsedChange}></lightning-input>
                     <lightning-input type="hidden" value={scanVal} class="slds-hide"></lightning-input>

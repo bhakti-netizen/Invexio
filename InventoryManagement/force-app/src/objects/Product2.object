@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <fullName>EnergyAid_Product_SKU__c</fullName>
-        <externalId>false</externalId>
-        <formula>PF_Abbrivation__c &amp;&quot;-&quot;&amp; PTM_Abbreviation__c &amp;&quot;-&quot;&amp; PTS_Abbreviation__c &amp;&quot;-&quot;&amp; Product_Number__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>EnergyAid Product SKU</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>PF_Abbrivation__c</fullName>
-        <businessStatus>Hidden</businessStatus>
-        <externalId>false</externalId>
-        <formula>CASE( Family , &quot;Inventory&quot;, &quot;EAC&quot;, &quot;Non-Inventory&quot;, &quot;EAN&quot;, &quot;RMA Inventory&quot;, &quot;EAR&quot;, &quot;Equipment&quot;, &quot;EAE&quot;, &quot;Service&quot;, &quot;EAS&quot;, &quot;Z&quot;)</formula>
-        <label>PF Abbrivation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>PTM_Abbreviation__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASE( Product_Type__c ,&quot;Module&quot;,&quot;M&quot;,&quot;Inverter&quot;,&quot;NV&quot;,&quot;Inverter Monitoring&quot;,&quot;NVM&quot;,&quot;Inverter Accessory&quot;,&quot;NVA&quot;,&quot;Balance Of System (BOS)&quot;,&quot;BS&quot;,&quot;Racking and Mounting&quot;,&quot;RM&quot;,&quot;Battery&quot;,&quot;BA&quot;,&quot;Battery Accessory	&quot;,&quot;BAA&quot;,&quot;Charge Controller&quot;,&quot;CC&quot;,&quot;Tool&quot;,&quot;T&quot;,&quot;Supply&quot;,&quot;S&quot;,&quot;None&quot;,&quot;Z&quot;,&quot;ZZ&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>PTM Abbreviation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>PTS_Abbreviation__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASE(Product_Type_Sub__c,&quot;Accessory&quot;,&quot;ACC&quot;,&quot;Adapter&quot;,&quot;ADPT&quot;,&quot;Attachment&quot;,&quot;ATT&quot;,&quot;Ballast Bay&quot;,&quot;BALBY&quot;,&quot;Base Mount&quot;,&quot;BASMNT&quot;,&quot;Battery&quot;,&quot;BAT&quot;,&quot;Battery BOS&quot;,&quot;BATBS&quot;,&quot;Block&quot;,&quot;BLC&quot;,&quot;Bolt&quot;,&quot;BLT&quot;,&quot;Brace Assembly&quot;,&quot;BRAAS&quot;,&quot;Bracket&quot;,&quot;BRA&quot;,&quot;Busbar&quot;,&quot;BUS&quot;,&quot;Cable&quot;,&quot;CAB&quot;,&quot;Cap&quot;,&quot;CAP&quot;,&quot;Circuit Breaker&quot;,&quot;CIRB&quot;,&quot;Clamp&quot;,&quot;CLMP&quot;,&quot;Clip&quot;,&quot;CLP&quot;,&quot;Combiner Box&quot;,&quot;CMBX&quot;,&quot;Communication Card&quot;,&quot;CMCRD&quot;,&quot;Conduit&quot;,&quot;CND&quot;,&quot;Conduit Mount&quot;,&quot;CNDMT&quot;,&quot;Connector&quot;,&quot;CNCTR&quot;,&quot;Controller&quot;,&quot;CNTRL&quot;,&quot;Converter&quot;,&quot;CNVRT&quot;,&quot;Disconnect&quot;,&quot;DSCNT&quot;,&quot;Display&quot;,&quot;DSPL&quot;,&quot;Electrical Accessory&quot;,&quot;ELEACC&quot;,&quot;Electric Board&quot;,&quot;ELEBD&quot;,&quot;Enclosure&quot;,&quot;ENC&quot;,&quot;Flashing&quot;,&quot;FLA&quot;,&quot;Fuse&quot;,&quot;F&quot;,&quot;Fuse Holder&quot;,&quot;FHLD&quot;,&quot;Gateway&quot;,&quot;GATE&quot;,&quot;Hook&quot;,&quot;HK&quot;,&quot;Inverter Component&quot;,&quot;INVCMP&quot;,&quot;Junction Box&quot;,&quot;JUNBX&quot;,&quot;Kit&quot;,&quot;KT&quot;,&quot;Label&quot;,&quot;LAB&quot;,&quot;L-Foot&quot;,&quot;LFET&quot;,&quot;Load Center&quot;,&quot;LDCNT&quot;,&quot;Lug&quot;,&quot;LUG&quot;,&quot;Meter&quot;,&quot;MET&quot;,&quot;Meter Can&quot;,&quot;METCA&quot;,&quot;Micro&quot;,&quot;MCR&quot;,&quot;Misc&quot;,&quot;MSC&quot;,&quot;Module&quot;,&quot;MD&quot;,&quot;Monitoring Accessory&quot;,&quot;MNACC&quot;,&quot;Monitoring Cable&quot;,&quot;MNCAB&quot;,&quot;Monitoring Kit&quot;,&quot;MNKT&quot;,&quot;MPPT&quot;,&quot;MPPT&quot;,&quot;Optimizer&quot;,&quot;PTMZR&quot;,&quot;Other&quot;,&quot;0&quot;,&quot;Panel&quot;,&quot;PNL&quot;,&quot;Panel Washing&quot;,&quot;PNLWA&quot;,&quot;PWM&quot;,&quot;PWM&quot;,&quot;Rack&quot;,&quot;RAC&quot;,&quot;Rail&quot;,&quot;RAL&quot;,&quot;Rapid Shutdown&quot;,&quot;RAPSH&quot;,&quot;Safety&quot;,&quot;SAF&quot;,&quot;Sensor&quot;,&quot;SEN&quot;,&quot;Side of Pole Mount	&quot;,&quot;SPM&quot;,&quot;Skirt&quot;,&quot;SKRT&quot;,&quot;Splice Kit&quot;,&quot;SPLKT&quot;,&quot;Stand Off&quot;,&quot;STAF&quot;,&quot;Stopper Sleeve&quot;,&quot;STSV&quot;,&quot;String&quot;,&quot;STR&quot;,&quot;Surge Device&quot;,&quot;SURDE&quot;,&quot;Tilt Leg&quot;,&quot;TLEG&quot;,&quot;Tool&quot;,&quot;TL&quot;,&quot;Top of Pole Mount&quot;,&quot;TPM&quot;,&quot;Trunk Cable&quot;,&quot;TRNKCAB&quot;,&quot;Uniform&quot;,&quot;UNF&quot;,&quot;Washer&quot;,&quot;WSH&quot;,&quot;Wire&quot;,&quot;W&quot;,&quot;Wire Management&quot;,&quot;WMGT&quot;,&quot;None&quot;,&quot;Z&quot;,&quot;ZZ&quot;)</formula>
-        <label>PTS Abbreviation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Product_Number__c</fullName>
-        <displayFormat>{0000000}</displayFormat>
-        <externalId>false</externalId>
-        <label>Product Number</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
-    </fields>
-    <fields>
         <fullName>Product_Type_Sub__c</fullName>
         <description>Sub Category of the Product Type</description>
         <inlineHelpText>Sub Category of the Product Type</inlineHelpText>
@@ -446,6 +395,38 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Kit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Panel Washing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Safety</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Uniform</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Module</controllingFieldValue>
+                <valueName>Module</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter</controllingFieldValue>
+                <valueName>Micro</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter</controllingFieldValue>
+                <valueName>String</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
                 <valueName>Communication Card</valueName>
             </valueSettings>
@@ -480,18 +461,6 @@
             <valueSettings>
                 <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
                 <valueName>Sensor</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Module</controllingFieldValue>
-                <valueName>Module</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Inverter</controllingFieldValue>
-                <valueName>Micro</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Inverter</controllingFieldValue>
-                <valueName>String</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Inverter Accessory</controllingFieldValue>
@@ -728,26 +697,6 @@
             <valueSettings>
                 <controllingFieldValue>Tool</controllingFieldValue>
                 <valueName>Tool</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply</controllingFieldValue>
-                <valueName>Kit</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply</controllingFieldValue>
-                <valueName>Other</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply</controllingFieldValue>
-                <valueName>Panel Washing</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply</controllingFieldValue>
-                <valueName>Safety</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply</controllingFieldValue>
-                <valueName>Uniform</valueName>
             </valueSettings>
         </valueSet>
     </fields>
