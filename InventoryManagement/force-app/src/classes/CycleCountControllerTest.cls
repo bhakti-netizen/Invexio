@@ -74,24 +74,6 @@ public class CycleCountControllerTest {
         insert sr1;
     }
 
-    /*@isTest
-    static void testCombinedCycleCount() {
-        Test.startTest();
-
-        List<ProductItem> pi = [Select Id, ProductItemNumber From ProductItem Where IsProduct2Serialized = false];
-        List<String> barcodes = new List<String>{
-            'SP001#$#100#$#30',
-            'SP002#$#100#$#30',
-            pi[0].ProductItemNumber + '#$#10#$#7',
-            pi[1].ProductItemNumber + '#$#10#$#7'
-        };
-   
-        Schema.Location loc = [Select Id From Location Where Name = 'Test Location 1' LIMIT 1];
-        CycleCountController.combinedCycleCount(barcodes, loc.Id);
-		
-        Test.stopTest();
-    }*/
-
     @isTest
     static void testFetchTotalQuantityForScannedProduct() {
         Test.startTest();
@@ -124,6 +106,7 @@ public class CycleCountControllerTest {
     
     @isTest
     public static void testCCD(){
+       
         Schema.Location loc = [Select Id From Location LIMIT 1];
         ServiceResource sr = [Select Id From ServiceResource LIMIT 1];
         
@@ -140,6 +123,10 @@ public class CycleCountControllerTest {
         String ccdJson = JSON.serialize(ccdWrapper);
         CycleCountController.saveCycleCountDates(ccdJson);
         
+        List<Cycle_Count_Date__c> savedDates = [SELECT Id, Name FROM Cycle_Count_Date__c WHERE Timeframe__c = 'Weekly'];
+        System.assert(!savedDates.isEmpty(), 'Expected at least one Cycle_Count_Date__c record to be inserted.');
+        System.assert(savedDates[0].Name.contains('Weekly'), 'Expected Name to contain');
+
         List<ProductItem> pi = [Select Id, ProductItemNumber, Name__c From ProductItem Where IsProduct2Serialized = false];
         List<String> barcodes = new List<String>{
             'SP001#$#100#$#30',
@@ -152,6 +139,9 @@ public class CycleCountControllerTest {
         CycleCountController.combinedCycleCount(barcodes, loc1.Id);
         CycleCountController.combinedPullMaterials(barcodes, loc1.Id, True, sr.Id);
         
+        List<ProductTransfer> transfers = [SELECT Id FROM ProductTransfer WHERE IsReceived = true];
+        System.assert(transfers.size() > 0, 'Expected at least one ProductTransfer record to be inserted.');
+
         Cycle_Count__c cc = [ Select Id, Recount_Needed__c, Cycle_Count_Version__r.Cycle_Count_Date__c From Cycle_Count__c LIMIT 1];
         cc.Recount_Needed__c = True;
         update cc;
@@ -161,7 +151,4 @@ public class CycleCountControllerTest {
         CycleCountController.checkForDuplicates('SP001', loc1.Id, 10);
         
     }
-
- 
-
 }
