@@ -1,9 +1,0 @@
-trigger CycleCountTrigger on Cycle_Count__c (before update, after update) {
-    if(Trigger.isAfter){
-        CycleCountHelper.updateRelatedCCV(Trigger.new, Trigger.oldMap);
-    	CycleCountHelper.afterApprovalAutomations(Trigger.new, Trigger.oldMap);
-    }
-    else if(Trigger.IsBefore){
-        //CycleCountHelper.beforeUpdateAutomations(Trigger.new, Trigger.oldMap);
-    }
-}
