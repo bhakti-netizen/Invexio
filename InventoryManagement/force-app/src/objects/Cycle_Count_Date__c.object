@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CCD_Number__c</fullName>
+        <displayFormat>CCD-{0}</displayFormat>
+        <externalId>false</externalId>
+        <label>CCD Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Cycle_Count_Date__c</fullName>
+        <defaultValue>today()</defaultValue>
+        <label>Cycle Count Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>End_Date_Time__c</fullName>
+        <label>End Date Time</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Location</label>
+        <referenceTo>Location</referenceTo>
+        <relationshipLabel>Cycle Count Dates</relationshipLabel>
+        <relationshipName>Cycle_Count_Dates</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Locations__c</fullName>
+        <label>Locations</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NorCal</fullName>
+                    <default>false</default>
+                    <label>NorCal</label>
+                </value>
+                <value>
+                    <fullName>Nor Cal - Citrus Heights</fullName>
+                    <default>false</default>
+                    <label>Nor Cal - Citrus Heights</label>
+                </value>
+                <value>
+                    <fullName>Vehicle 1 - Ria&apos;s Location</fullName>
+                    <default>false</default>
+                    <label>Vehicle 1 - Ria&apos;s Location</label>
+                </value>
+                <value>
+                    <fullName>Arizona Serialized Products</fullName>
+                    <default>false</default>
+                    <label>Arizona Serialized Products</label>
+                </value>
+                <value>
+                    <fullName>Vehicle 02 - Sushant</fullName>
+                    <default>false</default>
+                    <label>Vehicle 02 - Sushant</label>
+                </value>
+                <value>
+                    <fullName>Test location</fullName>
+                    <default>false</default>
+                    <label>Test location</label>
+                </value>
+                <value>
+                    <fullName>SoCal - Santa Ana</fullName>
+                    <default>false</default>
+                    <label>SoCal - Santa Ana</label>
+                </value>
+                <value>
+                    <fullName>V250 - Chevy Hemi</fullName>
+                    <default>false</default>
+                    <label>V250 - Chevy Hemi</label>
+                </value>
+                <value>
+                    <fullName>V50- test van</fullName>
+                    <default>false</default>
+                    <label>V50- test van</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <label>Product Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+                <value>
+                    <fullName>Inventory</fullName>
+                    <default>false</default>
+                    <label>Inventory</label>
+                </value>
+                <value>
+                    <fullName>RMA Inventory</fullName>
+                    <default>false</default>
+                    <label>RMA Inventory</label>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Equipment</fullName>
+                    <default>false</default>
+                    <label>Equipment</label>
+                </value>
+                <value>
+                    <fullName>Non-Inventory</fullName>
+                    <default>false</default>
+                    <label>Non-Inventory</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Type_Main__c</fullName>
+        <label>Product Type (Main)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Test</fullName>
+                    <default>false</default>
+                    <label>Test</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Type_Sub__c</fullName>
+        <label>Product Type (Sub)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Test</fullName>
+                    <default>false</default>
+                    <label>Test</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Products__c</fullName>
+        <label>Products</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tigos/UKT Retrofit</fullName>
+                    <default>false</default>
+                    <label>Tigos/UKT Retrofit</label>
+                </value>
+                <value>
+                    <fullName>INVRTR ACCSSRY - OPTMZR - SOLAREDGE - P505</fullName>
+                    <default>false</default>
+                    <label>INVRTR ACCSSRY - OPTMZR - SOLAREDGE - P505</label>
+                </value>
+                <value>
+                    <fullName>RMA - INVRTR - STRNG - SOLAREDGE - SE3800A-US</fullName>
+                    <default>false</default>
+                    <label>RMA - INVRTR - STRNG - SOLAREDGE - SE3800A-US</label>
+                </value>
+                <value>
+                    <fullName>RCKNG &amp; MNTNG - WR MNGMNT - DOTTIE - CABLE TIE</fullName>
+                    <default>false</default>
+                    <label>RCKNG &amp; MNTNG - WR MNGMNT - DOTTIE - CABLE TIE</label>
+                </value>
+                <value>
+                    <fullName>40amp Breaker</fullName>
+                    <default>false</default>
+                    <label>40amp Breaker</label>
+                </value>
+                <value>
+                    <fullName>INVRTR - STRNG - SMA - SUNNY BOY 3.0-US-41</fullName>
+                    <default>false</default>
+                    <label>INVRTR - STRNG - SMA - SUNNY BOY 3.0-US-41</label>
+                </value>
+                <value>
+                    <fullName>RMA - New Unit/s Installation</fullName>
+                    <default>false</default>
+                    <label>RMA - New Unit/s Installation</label>
+                </value>
+                <value>
+                    <fullName>BOS - CNNCTR - BUCHANAN - SPLICE CAP COPPER CRIMP CONNECTORS</fullName>
+                    <default>false</default>
+                    <label>BOS - CNNCTR - BUCHANAN - SPLICE CAP COPPER CRIMP CONNECTORS</label>
+                </value>
+                <value>
+                    <fullName>Sunrun Cell Swap</fullName>
+                    <default>false</default>
+                    <label>Sunrun Cell Swap</label>
+                </value>
+                <value>
+                    <fullName>INVRTR MNTRNG - MNTRNG ACCSSRY - NETGEAR - N300 WIFI EXTENDER</fullName>
+                    <default>false</default>
+                    <label>INVRTR MNTRNG - MNTRNG ACCSSRY - NETGEAR - N300 WIFI EXTENDER</label>
+                </value>
+                <value>
+                    <fullName>MDL - MDL - LONGI - 335W BOB</fullName>
+                    <default>false</default>
+                    <label>MDL - MDL - LONGI - 335W BOB</label>
+                </value>
+                <value>
+                    <fullName>BOS - CRCT BRKR - SOYG - CH280 2-POLE 80-AMP</fullName>
+                    <default>false</default>
+                    <label>BOS - CRCT BRKR - SOYG - CH280 2-POLE 80-AMP</label>
+                </value>
+                <value>
+                    <fullName>RCKNG &amp; MNTNG - CLMP - UNIRAC - UNIVERSAL MID CLAMP</fullName>
+                    <default>false</default>
+                    <label>RCKNG &amp; MNTNG - CLMP - UNIRAC - UNIVERSAL MID CLAMP</label>
+                </value>
+                <value>
+                    <fullName>BOS - CRCT BRKR - SQUARE D - 1 POLE 15A</fullName>
+                    <default>false</default>
+                    <label>BOS - CRCT BRKR - SQUARE D - 1 POLE 15A</label>
+                </value>
+                <value>
+                    <fullName>Per Diem</fullName>
+                    <default>false</default>
+                    <label>Per Diem</label>
+                </value>
+                <value>
+                    <fullName>System Installation (R&amp;R)</fullName>
+                    <default>false</default>
+                    <label>System Installation (R&amp;R)</label>
+                </value>
+                <value>
+                    <fullName>TL - TL - X - MC4 CRIMPER</fullName>
+                    <default>false</default>
+                    <label>TL - TL - X - MC4 CRIMPER</label>
+                </value>
+                <value>
+                    <fullName>Tigo Install - (7 or less)</fullName>
+                    <default>false</default>
+                    <label>Tigo Install - (7 or less)</label>
+                </value>
+                <value>
+                    <fullName>BOS - CNNCTR - ENPHASE - Q SEAL 10</fullName>
+                    <default>false</default>
+                    <label>BOS - CNNCTR - ENPHASE - Q SEAL 10</label>
+                </value>
+                <value>
+                    <fullName>$249 Panel Cleaning ≤ 19 Panels</fullName>
+                    <default>false</default>
+                    <label>$249 Panel Cleaning ≤ 19 Panels</label>
+                </value>
+                <value>
+                    <fullName>Additional Labor</fullName>
+                    <default>false</default>
+                    <label>Additional Labor</label>
+                </value>
+                <value>
+                    <fullName>INVRTR MNTRNG - GTWY - ENPHASE - IQ ENVOY 535946</fullName>
+                    <default>false</default>
+                    <label>INVRTR MNTRNG - GTWY - ENPHASE - IQ ENVOY 535946</label>
+                </value>
+                <value>
+                    <fullName>RMA - INVRTR - STRNG - FIMER - UNO-DM-3.3-TL-PLUS-US</fullName>
+                    <default>false</default>
+                    <label>RMA - INVRTR - STRNG - FIMER - UNO-DM-3.3-TL-PLUS-US</label>
+                </value>
+                <value>
+                    <fullName>RMA - INVRTR MNTRNG - COMM CARD - SOLAREDGE - FLD-1PH-PRT-03</fullName>
+                    <default>false</default>
+                    <label>RMA - INVRTR MNTRNG - COMM CARD - SOLAREDGE - FLD-1PH-PRT-03</label>
+                </value>
+                <value>
+                    <fullName>BOS - CNNCTR - BUCHANAN - SPLICE CAP INSULATOR</fullName>
+                    <default>false</default>
+                    <label>BOS - CNNCTR - BUCHANAN - SPLICE CAP INSULATOR</label>
+                </value>
+                <value>
+                    <fullName>RMA - INVRTR - STRNG - FRONIUS - PRIMO 5.0-1 (240V)</fullName>
+                    <default>false</default>
+                    <label>RMA - INVRTR - STRNG - FRONIUS - PRIMO 5.0-1 (240V)</label>
+                </value>
+                <value>
+                    <fullName>SPPLY - SFTY - X - 18&apos; 5IN1 MULTI-POSITION LADDER</fullName>
+                    <default>false</default>
+                    <label>SPPLY - SFTY - X - 18&apos; 5IN1 MULTI-POSITION LADDER</label>
+                </value>
+                <value>
+                    <fullName>SPPLY - OTHR - ORANGE HOME DEPOT BUCKET</fullName>
+                    <default>false</default>
+                    <label>SPPLY - OTHR - ORANGE HOME DEPOT BUCKET</label>
+                </value>
+                <value>
+                    <fullName>RCKNG &amp; MNTNG - CLMP - PROSOLAR - 1.481 - 1.520 BONDING END CLAMP</fullName>
+                    <default>false</default>
+                    <label>RCKNG &amp; MNTNG - CLMP - PROSOLAR - 1.481 - 1.520 BONDING END CLAMP</label>
+                </value>
+                <value>
+                    <fullName>Firmware Update</fullName>
+                    <default>false</default>
+                    <label>Firmware Update</label>
+                </value>
+                <value>
+                    <fullName>INVRTR MNTRNG - MNTRNG KT - ENPHASE - COMMS-KIT-01</fullName>
+                    <default>false</default>
+                    <label>INVRTR MNTRNG - MNTRNG KT - ENPHASE - COMMS-KIT-01</label>
+                </value>
+                <value>
+                    <fullName>LG Battery Removal - No Install - 2 or more Units</fullName>
+                    <default>false</default>
+                    <label>LG Battery Removal - No Install - 2 or more Units</label>
+                </value>
+                <value>
+                    <fullName>INVRTR - STRNG - SOLAREDGE - SE3000H-US</fullName>
+                    <default>false</default>
+                    <label>INVRTR - STRNG - SOLAREDGE - SE3000H-US</label>
+                </value>
+                <value>
+                    <fullName>BOS - CNNCTR - X - CONDUIT COUPLER , PVC, 3/4, 40 SCHD</fullName>
+                    <default>false</default>
+                    <label>BOS - CNNCTR - X - CONDUIT COUPLER , PVC, 3/4, 40 SCHD</label>
+                </value>
+                <value>
+                    <fullName>BOS - ELCTRCL ACCSSRY - ENPHASE - ENGAGE COUPLER</fullName>
+                    <default>false</default>
+                    <label>BOS - ELCTRCL ACCSSRY - ENPHASE - ENGAGE COUPLER</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Start_Date_Time__c</fullName>
+        <label>Start Date Time</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Technicians__c</fullName>
+        <label>Technicians</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ria Mittal</fullName>
+                    <default>false</default>
+                    <label>Ria Mittal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Timeframe__c</fullName>
+        <label>Timeframe</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Daily</fullName>
+                    <default>false</default>
+                    <label>Daily</label>
+                </value>
+                <value>
+                    <fullName>Weekly</fullName>
+                    <default>false</default>
+                    <label>Weekly</label>
+                </value>
+                <value>
+                    <fullName>Biweekly</fullName>
+                    <default>false</default>
+                    <label>Biweekly</label>
+                </value>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                    <label>Monthly</label>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                    <label>Quarterly</label>
+                </value>
+                <value>
+                    <fullName>Half Yearly</fullName>
+                    <default>false</default>
+                    <label>Half Yearly</label>
+                </value>
+                <value>
+                    <fullName>Yearly</fullName>
+                    <default>false</default>
+                    <label>Yearly</label>
+                </value>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                    <label>Custom</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Cycle Count Date</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Cycle_Count_Date__c</columns>
+        <columns>Location__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Cycle Count Date Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Cycle Count Dates</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

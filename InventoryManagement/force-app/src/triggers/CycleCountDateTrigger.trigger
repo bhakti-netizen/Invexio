@@ -1,0 +1,4 @@
+trigger CycleCountDateTrigger on Cycle_Count_Date__c (after insert) {
+
+    CycleCountHelper.createBulkCycleCountVersionRecords(Trigger.new);
+}

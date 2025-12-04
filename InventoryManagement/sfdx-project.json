@@ -1,0 +1,27 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "package": "InventoryManagement",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": true,
+      "versionDescription": "Extension package to Field Service Lightning"
+    },
+    {
+      "path": "force-app",
+      "package": "Invexio",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
+    }
+  ],
+  "name": "InventoryManagement",
+  "namespace": "Invexio",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "62.0",
+  "packageAliases": {
+    "Invexio": "0HodM0000000qhlSAA"
+  }
+}

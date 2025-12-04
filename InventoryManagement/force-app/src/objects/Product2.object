@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Product_Type_Sub__c</fullName>
+        <description>Sub Category of the Product Type</description>
+        <inlineHelpText>Sub Category of the Product Type</inlineHelpText>
+        <label>Product Type (Sub)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Product_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accessory</fullName>
+                    <default>false</default>
+                    <label>Accessory</label>
+                </value>
+                <value>
+                    <fullName>Adapter</fullName>
+                    <default>false</default>
+                    <label>Adapter</label>
+                </value>
+                <value>
+                    <fullName>Attachment</fullName>
+                    <default>false</default>
+                    <label>Attachment</label>
+                </value>
+                <value>
+                    <fullName>Ballast Bay</fullName>
+                    <default>false</default>
+                    <label>Ballast Bay</label>
+                </value>
+                <value>
+                    <fullName>Base Mount</fullName>
+                    <default>false</default>
+                    <label>Base Mount</label>
+                </value>
+                <value>
+                    <fullName>Battery</fullName>
+                    <default>false</default>
+                    <label>Battery</label>
+                </value>
+                <value>
+                    <fullName>Battery BOS</fullName>
+                    <default>false</default>
+                    <label>Battery BOS</label>
+                </value>
+                <value>
+                    <fullName>Block</fullName>
+                    <default>false</default>
+                    <label>Block</label>
+                </value>
+                <value>
+                    <fullName>Bolt</fullName>
+                    <default>false</default>
+                    <label>Bolt</label>
+                </value>
+                <value>
+                    <fullName>Brace Assembly</fullName>
+                    <default>false</default>
+                    <label>Brace Assembly</label>
+                </value>
+                <value>
+                    <fullName>Bracket</fullName>
+                    <default>false</default>
+                    <label>Bracket</label>
+                </value>
+                <value>
+                    <fullName>Busbar</fullName>
+                    <default>false</default>
+                    <label>Busbar</label>
+                </value>
+                <value>
+                    <fullName>Cable</fullName>
+                    <default>false</default>
+                    <label>Cable</label>
+                </value>
+                <value>
+                    <fullName>Cap</fullName>
+                    <default>false</default>
+                    <label>Cap</label>
+                </value>
+                <value>
+                    <fullName>Circuit Breaker</fullName>
+                    <default>false</default>
+                    <label>Circuit Breaker</label>
+                </value>
+                <value>
+                    <fullName>Clamp</fullName>
+                    <default>false</default>
+                    <label>Clamp</label>
+                </value>
+                <value>
+                    <fullName>Clip</fullName>
+                    <default>false</default>
+                    <label>Clip</label>
+                </value>
+                <value>
+                    <fullName>Combiner Box</fullName>
+                    <default>false</default>
+                    <label>Combiner Box</label>
+                </value>
+                <value>
+                    <fullName>Communication Card</fullName>
+                    <default>false</default>
+                    <label>Communication Card</label>
+                </value>
+                <value>
+                    <fullName>Conduit</fullName>
+                    <default>false</default>
+                    <label>Conduit</label>
+                </value>
+                <value>
+                    <fullName>Conduit Mount</fullName>
+                    <default>false</default>
+                    <label>Conduit Mount</label>
+                </value>
+                <value>
+                    <fullName>Connector</fullName>
+                    <default>false</default>
+                    <label>Connector</label>
+                </value>
+                <value>
+                    <fullName>Controller</fullName>
+                    <default>false</default>
+                    <label>Controller</label>
+                </value>
+                <value>
+                    <fullName>Converter</fullName>
+                    <default>false</default>
+                    <label>Converter</label>
+                </value>
+                <value>
+                    <fullName>Disconnect</fullName>
+                    <default>false</default>
+                    <label>Disconnect</label>
+                </value>
+                <value>
+                    <fullName>Display</fullName>
+                    <default>false</default>
+                    <label>Display</label>
+                </value>
+                <value>
+                    <fullName>Electrical Accessory</fullName>
+                    <default>false</default>
+                    <label>Electrical Accessory</label>
+                </value>
+                <value>
+                    <fullName>Electric Board</fullName>
+                    <default>false</default>
+                    <label>Electric Board</label>
+                </value>
+                <value>
+                    <fullName>Enclosure</fullName>
+                    <default>false</default>
+                    <label>Enclosure</label>
+                </value>
+                <value>
+                    <fullName>EV Charger</fullName>
+                    <default>false</default>
+                    <label>EV Charger</label>
+                </value>
+                <value>
+                    <fullName>Flashing</fullName>
+                    <default>false</default>
+                    <label>Flashing</label>
+                </value>
+                <value>
+                    <fullName>Fuse</fullName>
+                    <default>false</default>
+                    <label>Fuse</label>
+                </value>
+                <value>
+                    <fullName>Fuse Holder</fullName>
+                    <default>false</default>
+                    <label>Fuse Holder</label>
+                </value>
+                <value>
+                    <fullName>Gateway</fullName>
+                    <default>false</default>
+                    <label>Gateway</label>
+                </value>
+                <value>
+                    <fullName>Hook</fullName>
+                    <default>false</default>
+                    <label>Hook</label>
+                </value>
+                <value>
+                    <fullName>Inverter Component</fullName>
+                    <default>false</default>
+                    <label>Inverter Component</label>
+                </value>
+                <value>
+                    <fullName>Junction Box</fullName>
+                    <default>false</default>
+                    <label>Junction Box</label>
+                </value>
+                <value>
+                    <fullName>Kit</fullName>
+                    <default>false</default>
+                    <label>Kit</label>
+                </value>
+                <value>
+                    <fullName>Label</fullName>
+                    <default>false</default>
+                    <label>Label</label>
+                </value>
+                <value>
+                    <fullName>L-Foot</fullName>
+                    <default>false</default>
+                    <label>L-Foot</label>
+                </value>
+                <value>
+                    <fullName>Load Center</fullName>
+                    <default>false</default>
+                    <label>Load Center</label>
+                </value>
+                <value>
+                    <fullName>Lug</fullName>
+                    <default>false</default>
+                    <label>Lug</label>
+                </value>
+                <value>
+                    <fullName>Meter</fullName>
+                    <default>false</default>
+                    <label>Meter</label>
+                </value>
+                <value>
+                    <fullName>Meter Can</fullName>
+                    <default>false</default>
+                    <label>Meter Can</label>
+                </value>
+                <value>
+                    <fullName>Micro</fullName>
+                    <default>false</default>
+                    <label>Micro</label>
+                </value>
+                <value>
+                    <fullName>Misc</fullName>
+                    <default>false</default>
+                    <label>Misc</label>
+                </value>
+                <value>
+                    <fullName>Module</fullName>
+                    <default>false</default>
+                    <label>Module</label>
+                </value>
+                <value>
+                    <fullName>Monitoring Accessory</fullName>
+                    <default>false</default>
+                    <label>Monitoring Accessory</label>
+                </value>
+                <value>
+                    <fullName>Monitoring Cable</fullName>
+                    <default>false</default>
+                    <label>Monitoring Cable</label>
+                </value>
+                <value>
+                    <fullName>Monitoring Kit</fullName>
+                    <default>false</default>
+                    <label>Monitoring Kit</label>
+                </value>
+                <value>
+                    <fullName>MPPT</fullName>
+                    <default>false</default>
+                    <label>MPPT</label>
+                </value>
+                <value>
+                    <fullName>Optimizer</fullName>
+                    <default>false</default>
+                    <label>Optimizer</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Panel</fullName>
+                    <default>false</default>
+                    <label>Panel</label>
+                </value>
+                <value>
+                    <fullName>Panel Washing</fullName>
+                    <default>false</default>
+                    <label>Panel Washing</label>
+                </value>
+                <value>
+                    <fullName>PWM</fullName>
+                    <default>false</default>
+                    <label>PWM</label>
+                </value>
+                <value>
+                    <fullName>Rack</fullName>
+                    <default>false</default>
+                    <label>Rack</label>
+                </value>
+                <value>
+                    <fullName>Rail</fullName>
+                    <default>false</default>
+                    <label>Rail</label>
+                </value>
+                <value>
+                    <fullName>Rapid Shutdown</fullName>
+                    <default>false</default>
+                    <label>Rapid Shutdown</label>
+                </value>
+                <value>
+                    <fullName>Safety</fullName>
+                    <default>false</default>
+                    <label>Safety</label>
+                </value>
+                <value>
+                    <fullName>Sensor</fullName>
+                    <default>false</default>
+                    <label>Sensor</label>
+                </value>
+                <value>
+                    <fullName>Side of Pole Mount</fullName>
+                    <default>false</default>
+                    <label>Side of Pole Mount</label>
+                </value>
+                <value>
+                    <fullName>Skirt</fullName>
+                    <default>false</default>
+                    <label>Skirt</label>
+                </value>
+                <value>
+                    <fullName>Splice Kit</fullName>
+                    <default>false</default>
+                    <label>Splice Kit</label>
+                </value>
+                <value>
+                    <fullName>Stand Off</fullName>
+                    <default>false</default>
+                    <label>Stand Off</label>
+                </value>
+                <value>
+                    <fullName>Stopper Sleeve</fullName>
+                    <default>false</default>
+                    <label>Stopper Sleeve</label>
+                </value>
+                <value>
+                    <fullName>String</fullName>
+                    <default>false</default>
+                    <label>String</label>
+                </value>
+                <value>
+                    <fullName>Surge Device</fullName>
+                    <default>false</default>
+                    <label>Surge Device</label>
+                </value>
+                <value>
+                    <fullName>Tilt Leg</fullName>
+                    <default>false</default>
+                    <label>Tilt Leg</label>
+                </value>
+                <value>
+                    <fullName>Tool</fullName>
+                    <default>false</default>
+                    <label>Tool</label>
+                </value>
+                <value>
+                    <fullName>Top of Pole Mount</fullName>
+                    <default>false</default>
+                    <label>Top of Pole Mount</label>
+                </value>
+                <value>
+                    <fullName>Trunk Cable</fullName>
+                    <default>false</default>
+                    <label>Trunk Cable</label>
+                </value>
+                <value>
+                    <fullName>Uniform</fullName>
+                    <default>false</default>
+                    <label>Uniform</label>
+                </value>
+                <value>
+                    <fullName>Washer</fullName>
+                    <default>false</default>
+                    <label>Washer</label>
+                </value>
+                <value>
+                    <fullName>Wire</fullName>
+                    <default>false</default>
+                    <label>Wire</label>
+                </value>
+                <value>
+                    <fullName>Wire Management</fullName>
+                    <default>false</default>
+                    <label>Wire Management</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Kit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Panel Washing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Safety</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Supply</controllingFieldValue>
+                <valueName>Uniform</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Module</controllingFieldValue>
+                <valueName>Module</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter</controllingFieldValue>
+                <valueName>Micro</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter</controllingFieldValue>
+                <valueName>String</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Communication Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Controller</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Display</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Gateway</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Meter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Monitoring Accessory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Monitoring Cable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Monitoring Kit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Monitoring</controllingFieldValue>
+                <valueName>Sensor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Accessory</controllingFieldValue>
+                <valueName>Electric Board</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Accessory</controllingFieldValue>
+                <valueName>EV Charger</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Accessory</controllingFieldValue>
+                <valueName>Inverter Component</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Accessory</controllingFieldValue>
+                <valueName>Optimizer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inverter Accessory</controllingFieldValue>
+                <valueName>Trunk Cable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Adapter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Battery BOS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Block</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Busbar</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Circuit Breaker</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Clip</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Combiner Box</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Conduit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Connector</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Disconnect</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Electrical Accessory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Fuse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Fuse Holder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Junction Box</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Label</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Load Center</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Meter Can</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Panel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Rapid Shutdown</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Surge Device</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Of System (BOS)</controllingFieldValue>
+                <valueName>Wire</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Attachment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Ballast Bay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Base Mount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Bolt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Brace Assembly</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Bracket</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Cap</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Clamp</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Conduit Mount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Flashing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Hook</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>L-Foot</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Lug</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Rail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Side of Pole Mount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Skirt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Splice Kit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Stand Off</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Stopper Sleeve</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Tilt Leg</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Top of Pole Mount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Washer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Racking and Mounting</controllingFieldValue>
+                <valueName>Wire Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Battery</controllingFieldValue>
+                <valueName>Battery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Battery Accessory</controllingFieldValue>
+                <valueName>Cable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Battery Accessory</controllingFieldValue>
+                <valueName>Enclosure</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Battery Accessory</controllingFieldValue>
+                <valueName>Misc</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Battery Accessory</controllingFieldValue>
+                <valueName>Rack</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Charge Controller</controllingFieldValue>
+                <valueName>Accessory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Charge Controller</controllingFieldValue>
+                <valueName>Converter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Charge Controller</controllingFieldValue>
+                <valueName>MPPT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Charge Controller</controllingFieldValue>
+                <valueName>PWM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tool</controllingFieldValue>
+                <valueName>Tool</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Type__c</fullName>
+        <description>Main Category of Product</description>
+        <inlineHelpText>Main Category of Product</inlineHelpText>
+        <label>Product Type (Main)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Module</fullName>
+                    <default>false</default>
+                    <label>Module</label>
+                </value>
+                <value>
+                    <fullName>Inverter</fullName>
+                    <default>false</default>
+                    <label>Inverter</label>
+                </value>
+                <value>
+                    <fullName>Inverter Monitoring</fullName>
+                    <default>false</default>
+                    <label>Inverter Monitoring</label>
+                </value>
+                <value>
+                    <fullName>Inverter Accessory</fullName>
+                    <default>false</default>
+                    <label>Inverter Accessory</label>
+                </value>
+                <value>
+                    <fullName>Balance Of System (BOS)</fullName>
+                    <default>false</default>
+                    <label>Balance Of System (BOS)</label>
+                </value>
+                <value>
+                    <fullName>Racking and Mounting</fullName>
+                    <default>false</default>
+                    <label>Racking and Mounting</label>
+                </value>
+                <value>
+                    <fullName>Battery</fullName>
+                    <default>false</default>
+                    <label>Battery</label>
+                </value>
+                <value>
+                    <fullName>Battery Accessory</fullName>
+                    <default>false</default>
+                    <label>Battery Accessory</label>
+                </value>
+                <value>
+                    <fullName>Charge Controller</fullName>
+                    <default>false</default>
+                    <label>Charge Controller</label>
+                </value>
+                <value>
+                    <fullName>Tool</fullName>
+                    <default>false</default>
+                    <label>Tool</label>
+                </value>
+                <value>
+                    <fullName>Supply</fullName>
+                    <default>false</default>
+                    <label>Supply</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>

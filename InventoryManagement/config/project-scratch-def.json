@@ -1,0 +1,22 @@
+{
+  "orgName": "Inventory Management",
+  "edition": "Developer",
+  "features": ["EnableSetPasswordInApi","PublishAuraExpBuilderBasedSna","PublishExpBuilderBasedSna", "FieldService:10"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    },
+    "fieldServiceSettings": { 
+      "fieldServiceOrgPref": true 
+    }
+  }
+}
