@@ -27,4 +27,5 @@ global with sharing class ConvertIntegerToString {
         @InvocableVariable
         global list<String> RequestResult;
     }
+
 }
