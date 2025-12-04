@@ -1,3 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-    <c:scannerForMobileApp></c:scannerForMobileApp>
-</aura:component>
