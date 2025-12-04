@@ -1,0 +1,31 @@
+global with sharing class ConvertIntegerToString {
+    
+   
+    @InvocableMethod
+    public static List<Results> GetCount (List<Requests> requests)
+    {   
+        Requests OBJRequests = requests[0];
+        Integer i = OBJRequests.RequestInt;
+        list<String> lstint = new list<String>();
+        for(integer k=1 ; k<=i ; k++){
+            lstint.add(String.valueof(k));
+        }
+               
+        List<Results> resultsList = new List<results>();
+        Results curResult = new Results();
+        curResult.RequestResult = lstint; 
+        resultsList.add(curResult);
+        return resultsList;
+    }
+    
+    global class Requests {
+        @InvocableVariable
+        global Integer RequestInt;
+    }
+    
+    global class Results {
+        @InvocableVariable
+        global list<String> RequestResult;
+    }
+
+}

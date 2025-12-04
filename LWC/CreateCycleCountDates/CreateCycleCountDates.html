@@ -1,0 +1,116 @@
+<template>
+    <lightning-card>
+      <div class="slds-page-header">
+         <div class="slds-text-heading_medium slds-p-left_small">
+         <lightning-icon icon-name="standard:record" size="small" class="slds-p-left_small"></lightning-icon> New Cycle Count Date Record </div>
+     </div>
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-gutters">
+                <!-- Start Date -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input type="datetime" label="Start Date" onchange={startDateChange} required></lightning-input>
+                </div>
+                <!-- End Date -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input type="datetime" label="End Date" onchange={endDateChange} required></lightning-input>
+                </div>
+                
+            </div>
+            <!-- Timeframe -->
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-combobox
+                        name="Timeframe"
+                        label="Timeframe"
+                        value={timeframeValue}
+                        placeholder="Select Timeframe"
+                        options={options}
+                        onchange={handleTimeframeChange} ></lightning-combobox>
+                </div>
+
+            <!-- Dual Listboxes -->
+            <div class="slds-m-top_medium">
+                <lightning-dual-listbox name="Locations"
+                    label="Select Locations"
+                    size="4"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={locationOptions}
+                    onchange={handleLocationChange}
+                    value={predefaultLocations}
+                    >
+                </lightning-dual-listbox>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-dual-listbox name="Technicians"
+                    label="Select Technicians"
+                    size="4"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={technicianOptions}
+                    value = {predefaultTechs}
+                    onchange={handleTechnicianChange}
+                    
+                    >
+                </lightning-dual-listbox>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-dual-listbox name="ProductFamily"
+                    label="Select Product Family"
+                    size="4"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={familyOptions}
+                    onchange={handleFamilyChange}
+                    >
+                </lightning-dual-listbox>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-dual-listbox name="ProductTypeMain"
+                    label="Select Product Type Main"
+                    size="4"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={productTypeMainOptions}
+                    onchange={handleProductTypeMainChange}
+                    >
+                </lightning-dual-listbox>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-dual-listbox name="ProductTypeSub"
+                    label="Select Product Type Sub"
+                    size="4"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={productTypeSubOptions}
+                    onchange={handleProductTypeSubChange}
+                    >
+                </lightning-dual-listbox>
+            </div>
+
+            <template if:true={showProductSelection}>
+                <div class="slds-m-top_medium">
+                    <lightning-dual-listbox name="Products"
+                        label="Select Products"
+                        size="4"
+                        source-label="Available"
+                        selected-label="Selected"
+                        options={productOptions}
+                        onchange={handleProductChange}
+                        value={predefaultProducts}
+                        >
+                    </lightning-dual-listbox>
+                </div>
+            </template> 
+        </div>
+        <div slot="footer"  style="padding-left: 42%;">
+            <div class="slds-grid slds-grid_vertical-align-center">
+                <div><lightning-button variant="neutral" label="Cancel" onclick={hideModalBox} class="slds-m-right_small"></lightning-button></div>
+                <div><lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button></div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
